@@ -26,7 +26,9 @@ function App() {
         const res = await fetch(`${BACKEND_URL}/ultima_foto`);
         const data = await res.json();
         if (data.filename) {
-          setLatestPhoto(`${BACKEND_URL}/fotos/${data.filename}`);
+          // Cache busting: agregar timestamp para forzar recarga si la foto cambia
+          const photoUrl = `${BACKEND_URL}/fotos/${data.filename}?t=${Date.now()}`;
+          setLatestPhoto(photoUrl);
           setLatestPhotoFilename(data.filename);
         } else {
           setLatestPhoto(null);
