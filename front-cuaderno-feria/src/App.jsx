@@ -63,6 +63,7 @@ function App() {
     setError('');
   };
 
+  // Restaurar la descarga automática del PDF generado
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
