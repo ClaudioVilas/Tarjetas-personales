@@ -18,6 +18,11 @@ function App() {
   const [latestPhoto, setLatestPhoto] = useState(null);
   const [latestPhotoFilename, setLatestPhotoFilename] = useState(null);
   
+  // Estados para envío de email
+  const [emailSending, setEmailSending] = useState(false);
+  const [emailSuccess, setEmailSuccess] = useState('');
+  const [lastGeneratedPdfName, setLastGeneratedPdfName] = useState('');
+  
   // Estados para las nuevas fotos
   const [photo1, setPhoto1] = useState(null);
   // const [photo2, setPhoto2] = useState(null);
@@ -26,6 +31,7 @@ function App() {
 
   // Cambia esta URL si tu backend está en otra IP/puerto
   const BACKEND_URL = 'http://172.22.8.13:5000'; // Cambia si tu backend está en otra IP
+  const EMAIL_SERVICE_URL = 'http://localhost:5001'; // Servicio de email
   
   // Polling para obtener la última foto cada 2 segundos
   useEffect(() => {
@@ -117,11 +123,58 @@ function App() {
   //   setError('');
   // };
 
+  // Función para enviar email con PDF
+  const sendEmailWithPdf = async (pdfFilename) => {
+    if (!mail) {
+      setError('Email del destinatario es requerido para envío');
+      return false;
+    }
+
+    try {
+      setEmailSending(true);
+      setEmailSuccess('');
+      
+      const emailData = {
+        recipient_email: mail,
+        recipient_name: empresa || '',
+        pdf_filename: pdfFilename,
+        empresa: empresa || 'Feria Shanghai 2025'
+      };
+
+      console.log('[DEBUG EMAIL] Enviando datos:', emailData);
+
+      const response = await fetch(`${EMAIL_SERVICE_URL}/send_pdf_email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData)
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setEmailSuccess(`✅ PDF enviado correctamente a ${mail}`);
+        return true;
+      } else {
+        setError(`❌ Error enviando email: ${result.message}`);
+        return false;
+      }
+    } catch (err) {
+      setError(`❌ Error de conexión con servicio de email: ${err.message}`);
+      return false;
+    } finally {
+      setEmailSending(false);
+    }
+  };
+
   // Restaurar la descarga automática del PDF generado
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
+    setEmailSuccess('');
+    
     try {
       if (!latestPhotoFilename) throw new Error('No hay foto disponible');
       
@@ -132,9 +185,7 @@ function App() {
       console.log('- mail:', mail);
       console.log('- descripcion:', descripcion);
       console.log('- photo1:', photo1 ? 'Sí' : 'No');
-      // console.log('- photo2:', photo2 ? 'Sí' : 'No');
       console.log('- photo1Filename:', photo1Filename);
-      // console.log('- photo2Filename:', photo2Filename);
       
       // Generar el PDF usando los campos individuales
       const pdfForm = new FormData();
@@ -145,28 +196,57 @@ function App() {
       
       // Enviar información sobre las fotos adicionales
       pdfForm.append('hasPhoto1', photo1 ? 'true' : 'false');
-      pdfForm.append('hasPhoto2', 'false'); // photo2 ? 'true' : 'false');
+      pdfForm.append('hasPhoto2', 'false');
       pdfForm.append('photo1_filename', photo1Filename || '');
-      pdfForm.append('photo2_filename', ''); // photo2Filename || '');
+      pdfForm.append('photo2_filename', '');
       
+      console.log('[DEBUG] Generando PDF...');
       const pdfRes = await fetch(`${BACKEND_URL}/generate_pdf`, {
         method: 'POST',
         body: pdfForm,
       });
+      
       if (!pdfRes.ok) throw new Error('Error generando el PDF');
+      
+      // Obtener el nombre del archivo del header de respuesta
+      const contentDisposition = pdfRes.headers.get('Content-Disposition');
+      let pdfFilename = 'resultado.pdf';
+      
+      if (contentDisposition) {
+        const match = contentDisposition.match(/filename="([^"]+)"/);
+        if (match) {
+          pdfFilename = match[1];
+        }
+      } else if (empresa) {
+        // Generar nombre basado en empresa
+        pdfFilename = `Tarjeta_${empresa.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`;
+      }
+      
+      setLastGeneratedPdfName(pdfFilename);
+      
       const blob = await pdfRes.blob();
+      
       // Descargar el PDF directamente
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'resultado.pdf';
+      a.download = pdfFilename;
       document.body.appendChild(a);
       a.click();
       setTimeout(() => {
         window.URL.revokeObjectURL(url);
         document.body.removeChild(a);
       }, 100);
+      
+      console.log('[DEBUG] PDF generado exitosamente, iniciando envío por email...');
+      
+      // Enviar por email si se proporcionó un email
+      if (mail && mail.trim()) {
+        await sendEmailWithPdf(pdfFilename);
+      }
+      
     } catch (err) {
+      console.error('[ERROR]', err);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -269,11 +349,19 @@ function App() {
           </div>
         )}
         <div className="button-section">
-          <button type="submit" disabled={loading || !latestPhotoFilename}>
-            {loading ? 'Generando PDF...' : 'Generar PDF'}
+          <button type="submit" disabled={loading || emailSending || !latestPhotoFilename}>
+            {loading ? 'Generando PDF...' : emailSending ? 'Enviando por email...' : 'Generar PDF y Enviar'}
           </button>
+          
+          {mail && (
+            <div className="email-info">
+              <small>📧 El PDF será enviado automáticamente a: <strong>{mail}</strong></small>
+            </div>
+          )}
         </div>
       </form>
+      
+      {emailSuccess && <div className="success">{emailSuccess}</div>}
       {error && <div className="error">{error}</div>}
     </div>
   );

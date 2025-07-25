@@ -307,6 +307,64 @@ textarea {
   }
 }
 
+/* Estilos para el servicio de email */
+.email-info {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+  border-radius: 8px;
+  border-left: 4px solid #2196f3;
+  text-align: center;
+}
+
+.email-info small {
+  color: #666;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.email-info strong {
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.success {
+  padding: 1rem;
+  background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+  color: #2e7d32;
+  border: 1px solid #81c784;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  animation: slideIn 0.5s ease;
+}
+
+.error {
+  padding: 1rem;
+  background: linear-gradient(135deg, #ffebee, #fce4ec);
+  color: #c62828;
+  border: 1px solid #e57373;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  animation: slideIn 0.5s ease;
+}
+
+/* Mejorar el botón principal para mostrar estado de email */
+.button-section button:disabled {
+  background: linear-gradient(135deg, #bdbdbd, #9e9e9e);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button-section button:not(:disabled):hover {
+  background: linear-gradient(135deg, #5e72e4, #6c5ce7);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
 @media (max-width: 700px) {
   .container {
     padding: 1rem;
@@ -337,5 +395,14 @@ textarea {
   .photo-container > div:last-child {
     flex-direction: column;
     gap: 0.5rem;
+  }
+  
+  .email-info {
+    padding: 0.6rem;
+    margin-top: 0.8rem;
+  }
+  
+  .email-info small {
+    font-size: 0.8rem;
   }
 }

@@ -18,6 +18,9 @@ el formato que debe mantnerse  el PDF es el siguiente: te comparto una foto de e
 tanto la foto 1 como la foto 2 deben tener un boton de borrado de foto, en caso de no querer que haya una foto o de que se muestre alguna
 con este boton se debe eliminar la foto y el boton de borrado debe tener un estilo de boton primario
 
+entiendio que todo esto es una unica solucion genral, subir al repositorio remoto git remote add origin https://github.com/ClaudioVilas/Tarjetas-personales.git
+toda la soluicon completa desde la raiz del proyecto, que es COPIA DE PROYECTO TARJETAS FERIA 2
+
 dentro de la carpeta mail, necesito que montes un servicio de envio de mails que reciba el PDF generado y lo envie a un mail que se le pase como parametro, este servicio debe ser llamado desde el boton generar PDF
 el mail a tomar debe ser el que se ingresa en el input de email que ya tienes implementado
 el mail de donde se va a inviar es info@lapampacueros.com

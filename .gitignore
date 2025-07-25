@@ -53,6 +53,10 @@ venv.bak/
 backend.log
 frontend.log
 
+# Email service logs
+Mail/email_service.log
+Mail/email_server.log
+
 # Fotos de prueba (mantener estructura pero no contenido)
 /cuaderno-feria-cueros/fotos/*.jpg
 !/cuaderno-feria-cueros/fotos/.gitkeep

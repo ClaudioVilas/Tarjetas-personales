@@ -23,6 +23,15 @@ Sistema completo para generar tarjetas de contacto personalizadas en formato PDF
   - API REST para frontend
   - Naming automático de archivos
 
+### Servicio de Email (Flask + SMTP)
+- **Ubicación:** `Mail/`
+- **Framework:** Flask + SMTP
+- **Funcionalidades:**
+  - Envío automático de PDFs por email
+  - Configuración SMTP segura (SSL/TLS)
+  - Templates HTML personalizados
+  - Logs detallados de envíos
+
 ## 🚀 Instalación y Uso
 
 ### Prerrequisitos
@@ -44,6 +53,20 @@ pip install flask flask-cors fpdf2
 python main.py
 ```
 
+### Configuración Servicio Email
+```bash
+cd Mail
+pip install -r requirements.txt
+python email_server.py
+```
+
+### Inicio Automático (Recomendado)
+```bash
+# Inicia todos los servicios automáticamente
+chmod +x start_local.sh
+./start_local.sh
+```
+
 ## 📱 Funcionalidades Implementadas
 
 ### ✅ Completadas
@@ -54,6 +77,8 @@ python main.py
 - [x] **Responsive design:** Adaptable a móviles
 - [x] **Naming inteligente:** PDFs nombrados por empresa
 - [x] **Alineación izquierda:** Todos los elementos del PDF
+- [x] **Envío automático por email:** PDFs enviados al email ingresado
+- [x] **Templates HTML:** Emails personalizados con branding
 
 ### ❌ Funcionalidad Comentada (Por Requerimientos)
 - [x] **Foto 2:** Completamente deshabilitada
@@ -74,6 +99,11 @@ python main.py
 - `POST /generate_pdf` - Genera PDF con datos
 - `GET /fotos/<filename>` - Sirve archivos de foto
 
+### Servicio Email (Puerto 5001)
+- `POST /send_pdf_email` - Envía PDF por email
+- `GET /test_email_connection` - Prueba conexión SMTP
+- `GET /health` - Estado del servicio
+
 ## 📁 Estructura del Proyecto
 ```
 Copia de Proyecto Tarjetas Feria 2/
@@ -87,8 +117,12 @@ Copia de Proyecto Tarjetas Feria 2/
 │   ├── main.py                   # Servidor principal
 │   ├── fotos/                    # Almacén de imágenes
 │   └── backend.log               # Logs del servidor
+├── Mail/                         # Servicio de email
+│   ├── email_service.py          # Lógica de envío SMTP
+│   ├── email_server.py           # API REST para emails
+│   ├── requirements.txt          # Dependencias Python
+│   └── README.md                 # Documentación del servicio
 ├── Pdf Feria/                    # PDFs generados
-├── Mail/                         # (Futuro: Servicio de email)
 ├── SOLUCION_IMPLEMENTADA.md      # Documentación técnica
 └── README.md                     # Este archivo
 ```
@@ -99,14 +133,15 @@ Copia de Proyecto Tarjetas Feria 2/
 - `test_margen_izquierdo.pdf` - Verificación de alineación
 
 ## 🔮 Roadmap Futuro
-- [ ] Servicio de envío de emails
-- [ ] Selector múltiple de fotos
 - [ ] Autenticación de usuarios
 - [ ] Dashboard de gestión
+- [ ] Múltiples templates de email
+- [ ] Integración con más proveedores SMTP
 
 ## 💻 Tecnologías Utilizadas
 - **Frontend:** React, Vite, CSS3
 - **Backend:** Python, Flask, FPDF
+- **Email Service:** Python, Flask, SMTP, HTML Templates
 - **Storage:** Sistema de archivos local
 - **Tools:** Git, VS Code
 
