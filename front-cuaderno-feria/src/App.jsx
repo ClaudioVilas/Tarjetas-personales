@@ -131,8 +131,10 @@ function App() {
     }
 
     try {
+      console.log('[DEBUG EMAIL] Iniciando envío de email...');
       setEmailSending(true);
       setEmailSuccess('');
+      setError(''); // Limpiar errores previos
       
       const emailData = {
         recipient_email: mail,
@@ -151,19 +153,26 @@ function App() {
         body: JSON.stringify(emailData)
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
       const result = await response.json();
+      console.log('[DEBUG EMAIL] Respuesta del servidor:', result);
       
       if (result.success) {
         setEmailSuccess(`✅ PDF enviado correctamente a ${mail}`);
         return true;
       } else {
-        setError(`❌ Error enviando email: ${result.message}`);
+        setError(`❌ Error enviando email: ${result.message || 'Error desconocido'}`);
         return false;
       }
     } catch (err) {
+      console.error('[DEBUG EMAIL] Error:', err);
       setError(`❌ Error de conexión con servicio de email: ${err.message}`);
       return false;
     } finally {
+      console.log('[DEBUG EMAIL] Finalizando envío de email...');
       setEmailSending(false);
     }
   };
@@ -174,6 +183,7 @@ function App() {
     setLoading(true);
     setError('');
     setEmailSuccess('');
+    setEmailSending(false); // Asegurar que inicie en false
     
     try {
       // Debug: verificar qué valores se están enviando
@@ -204,7 +214,7 @@ function App() {
         body: pdfForm,
       });
       
-      if (!pdfRes.ok) throw new Error('Error generando el PDF');
+      if (!pdfRes.ok) throw new Error(`Error generando el PDF: ${pdfRes.status} ${pdfRes.statusText}`);
       
       // Obtener el nombre del archivo del header de respuesta
       const contentDisposition = pdfRes.headers.get('Content-Disposition');
@@ -241,7 +251,8 @@ function App() {
       // Enviar por email solo si se proporcionó un email válido
       if (mail && mail.trim()) {
         console.log('[DEBUG EMAIL] Enviando por email a:', mail);
-        await sendEmailWithPdf(pdfFilename);
+        const emailResult = await sendEmailWithPdf(pdfFilename);
+        console.log('[DEBUG EMAIL] Resultado del envío:', emailResult);
       } else {
         console.log('[DEBUG EMAIL] No se envía email: no hay dirección válida');
       }
@@ -249,8 +260,10 @@ function App() {
     } catch (err) {
       console.error('[ERROR]', err);
       setError(err.message);
+      setEmailSending(false); // Asegurar que se resetee en caso de error
     } finally {
       setLoading(false);
+      console.log('[DEBUG] Proceso completado, reseteando estados...');
     }
   };
 
@@ -353,18 +366,7 @@ function App() {
           <button type="submit" disabled={loading || emailSending}>
             {loading ? 'Generando PDF...' : emailSending ? 'Enviando por email...' : 'Generar PDF'}
           </button>
-          
-          {mail && mail.trim() && (
-            <div className="email-info">
-              <small>📧 El PDF será enviado automáticamente a: <strong>{mail}</strong></small>
-            </div>
-          )}
-          
-          {(!mail || !mail.trim()) && (
-            <div className="email-info">
-              <small>📄 Solo se generará el PDF (sin envío por email)</small>
-            </div>
-          )}
+          {/* Mensaje eliminado, no mostrar información extra */}
         </div>
       </form>
       

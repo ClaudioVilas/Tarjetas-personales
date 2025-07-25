@@ -1,3 +1,12 @@
  * Serving Flask app 'main'
  * Debug mode: off
-Can't assign requested address
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.11:5000
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [25/Jul/2025 18:44:52] "GET /ultima_foto HTTP/1.1" 200 -
+127.0.0.1 - - [25/Jul/2025 18:45:03] "GET /ultima_foto HTTP/1.1" 200 -
+127.0.0.1 - - [25/Jul/2025 18:45:03] "GET /fotos/sin_nombre.jpg?t=1753479903515 HTTP/1.1" 200 -
+127.0.0.1 - - [25/Jul/2025 18:47:03] "GET /ultima_foto HTTP/1.1" 200 -
+127.0.0.1 - - [25/Jul/2025 18:47:03] "GET /fotos/sin_nombre.jpg?t=1753480023523 HTTP/1.1" 200 -

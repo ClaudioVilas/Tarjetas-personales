@@ -28,6 +28,25 @@ logging.basicConfig(
 class EmailService:
     def __init__(self):
         # Configuración SMTP basada en las imágenes proporcionadas
+        # Configuración SSL/TLS (Recomendada)
+        self.smtp_server = "p3plzcpnl509160.prod.phx3.secureserver.net"
+        self.smtp_port = 465  # SMTP SSL Port
+        self.smtp_user = "info@lapampacueros.com"
+        self.smtp_password = "Breakers2@21"
+        self.use_tls = True
+        
+        # Configuración del remitente
+        self.sender_email = "info@lapampacueros.com"
+        self.sender_name = "La Pampa Cueros - Feria Shanghai 2025"
+        
+        # Configuración de archivos
+        self.pdf_folder = os.path.join(os.path.dirname(__file__), '..', 'Pdf Feria')
+        
+        logging.info(f"📧 EmailService inicializado:")
+        logging.info(f"   📡 Servidor SMTP: {self.smtp_server}:{self.smtp_port}")
+        logging.info(f"   👤 Usuario: {self.smtp_user}")
+        logging.info(f"   🔒 SSL/TLS: {self.use_tls}")
+        logging.info(f"   📁 Carpeta PDF: {self.pdf_folder}")
         self.smtp_server = "p3plzcpnl509160.prod.phx3.secureserver.net"
         self.smtp_port = 465  # SMTP SSL/TLS
         self.sender_email = "info@lapampacueros.com"

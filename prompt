@@ -26,3 +26,10 @@ el mail a tomar debe ser el que se ingresa en el input de email que ya tienes im
 el mail de donde se va a inviar es info@lapampacueros.com
 la clave es Breakers2@21 (la password) "B mayuscula"
 te adjunto dos fotos con el resto de la info que necesitas y configuracion del servicio de envio de mails
+
+generar una rama tanto en el repositorio local como en el remoto, con el nombre email-service y subir todos los cambios a esa rama
+luego hacer un pull request desde la rama email-service al main
+
+modificar que no sea condicion que todos los campos este completos para generar el pdf 
+ni para hacer el envio de correo inclusive se puede generar pdf si no hay foto,
+y si no hay correo en el input no se debe ejecutar el serviocio de envio de correo
