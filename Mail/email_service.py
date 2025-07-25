@@ -29,29 +29,24 @@ class EmailService:
     def __init__(self):
         # Configuración SMTP basada en las imágenes proporcionadas
         # Configuración SSL/TLS (Recomendada)
-        self.smtp_server = "p3plzcpnl509160.prod.phx3.secureserver.net"
-        self.smtp_port = 465  # SMTP SSL Port
+        self.smtp_server = "mail.lapampacueros.com"
+        self.smtp_port = 587  # SMTP STARTTLS Port
         self.smtp_user = "info@lapampacueros.com"
         self.smtp_password = "Breakers2@21"
-        self.use_tls = True
+        self.use_tls = True  # Usar STARTTLS
         
         # Configuración del remitente
         self.sender_email = "info@lapampacueros.com"
         self.sender_name = "La Pampa Cueros - Feria Shanghai 2025"
         
-        # Configuración de archivos
-        self.pdf_folder = os.path.join(os.path.dirname(__file__), '..', 'Pdf Feria')
+        # Configuración de archivos - Ruta absoluta correcta
+        self.pdf_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Pdf Feria'))
         
         logging.info(f"📧 EmailService inicializado:")
         logging.info(f"   📡 Servidor SMTP: {self.smtp_server}:{self.smtp_port}")
         logging.info(f"   👤 Usuario: {self.smtp_user}")
         logging.info(f"   🔒 SSL/TLS: {self.use_tls}")
         logging.info(f"   📁 Carpeta PDF: {self.pdf_folder}")
-        self.smtp_server = "p3plzcpnl509160.prod.phx3.secureserver.net"
-        self.smtp_port = 465  # SMTP SSL/TLS
-        self.sender_email = "info@lapampacueros.com"
-        self.sender_password = "Breakers2@21"
-        self.sender_name = "La Pampa Cueros - Feria Shanghai 2025"
         
     def send_pdf_email(self, recipient_email, recipient_name="", pdf_path="", empresa=""):
         """
@@ -84,8 +79,11 @@ class EmailService:
             # Adjuntar PDF
             self._attach_pdf(msg, pdf_path, empresa)
             
-            # Enviar email
-            with smtplib.SMTP_SSL(self.smtp_server, self.smtp_port) as server:
+            # Enviar email usando STARTTLS
+            with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+                server.ehlo()
+                server.starttls()
+                server.ehlo()
                 server.login(self.sender_email, self.sender_password)
                 server.send_message(msg)
             

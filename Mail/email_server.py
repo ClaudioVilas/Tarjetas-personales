@@ -39,39 +39,44 @@ def send_pdf_email():
     - empresa: nombre de la empresa
     """
     try:
+        logging.info("Solicitud recibida en /send_pdf_email")
         data = request.get_json()
-        
+        logging.info(f"Datos recibidos: {data}")
+
         # Validar datos requeridos
         if not data:
+            logging.error("No se recibieron datos JSON")
             return jsonify({
                 "success": False,
                 "message": "No se recibieron datos JSON"
             }), 400
-        
+
         recipient_email = data.get('recipient_email')
         if not recipient_email:
+            logging.error("Email del destinatario es requerido")
             return jsonify({
                 "success": False,
                 "message": "Email del destinatario es requerido"
             }), 400
-        
+
         pdf_filename = data.get('pdf_filename')
         if not pdf_filename:
+            logging.error("Nombre del archivo PDF es requerido")
             return jsonify({
                 "success": False,
                 "message": "Nombre del archivo PDF es requerido"
             }), 400
-        
+
         # Construir ruta completa al PDF
         pdf_path = os.path.join('..', 'Pdf Feria', pdf_filename)
         pdf_path = os.path.abspath(pdf_path)
-        
+        logging.info(f"Ruta PDF construida: {pdf_path}")
         logging.info(f"Intentando enviar PDF: {pdf_path} a {recipient_email}")
-        
+
         # Datos opcionales
         recipient_name = data.get('recipient_name', '')
         empresa = data.get('empresa', '')
-        
+
         # Enviar email
         result = email_service.send_pdf_email(
             recipient_email=recipient_email,
@@ -79,12 +84,13 @@ def send_pdf_email():
             pdf_path=pdf_path,
             empresa=empresa
         )
-        
+
+        logging.info(f"Resultado envío: {result}")
         if result['success']:
             return jsonify(result), 200
         else:
             return jsonify(result), 500
-            
+
     except Exception as e:
         error_msg = f"Error en el servidor: {str(e)}"
         logging.error(error_msg)
