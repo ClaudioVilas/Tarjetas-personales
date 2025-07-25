@@ -59,3 +59,5 @@ frontend.log
 # macOS system files
 .DS_Store
 *.log
+# PDFs de prueba generados
+Pdf Feria/*.pdf
