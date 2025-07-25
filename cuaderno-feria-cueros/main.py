@@ -23,14 +23,14 @@ def generate_pdf():
         print(f"[DEBUG] request.form: {dict(request.form)}")
         print(f"[DEBUG] request.files: {dict(request.files)}")
         
-        filename = request.form.get('filename')
+        filename = request.form.get('filename', '').strip()
         empresa = request.form.get('empresa', '').strip()
-        mail = request.form.get('mail', '')
-        descripcion = request.form.get('descripcion', '')
+        mail = request.form.get('mail', '').strip()
+        descripcion = request.form.get('descripcion', '').strip()
         hasPhoto1 = request.form.get('hasPhoto1', 'false') == 'true'
         hasPhoto2 = request.form.get('hasPhoto2', 'false') == 'true'
-        photo1_filename = request.form.get('photo1_filename', '')
-        photo2_filename = request.form.get('photo2_filename', '')
+        photo1_filename = request.form.get('photo1_filename', '').strip()
+        photo2_filename = request.form.get('photo2_filename', '').strip()
         
         print(f"[DEBUG] filename: '{filename}'")
         print(f"[DEBUG] empresa: '{empresa}'")
@@ -41,8 +41,9 @@ def generate_pdf():
         print(f"[DEBUG] photo1_filename: '{photo1_filename}'")
         print(f"[DEBUG] photo2_filename: '{photo2_filename}'")
         
-        if not filename:
-            return 'Faltan datos', 400
+        # Ya no requerimos filename obligatorio
+        # if not filename:
+        #     return 'Faltan datos', 400
         # Normalizar nombre de empresa para usar como nombre de archivo
         import re
         if empresa:
@@ -57,9 +58,14 @@ def generate_pdf():
             while os.path.exists(os.path.join(PDF_FOLDER, f"{empresa_filename}.pdf")):
                 empresa_filename = f"{base}_{i}"
                 i += 1
-        image_path = os.path.join(FOTOS_FOLDER, filename)
-        if not os.path.exists(image_path):
-            return 'Imagen no encontrada', 404
+        
+        # Solo verificar la imagen si se proporciona filename
+        if filename:
+            image_path = os.path.join(FOTOS_FOLDER, filename)
+            if not os.path.exists(image_path):
+                print(f"[WARNING] Imagen no encontrada: {image_path}, continuando sin imagen principal")
+        else:
+            print("[INFO] No se proporcionó filename, generando PDF sin imagen principal")
         pdf = FPDF()
         pdf.add_page()
         # Título
@@ -71,21 +77,21 @@ def generate_pdf():
         pdf.set_font('Arial', 'B', 12)
         pdf.cell(0, 10, f'Nombre de la empresa:', ln=1, align='L')
         pdf.set_font('Arial', '', 12)
-        pdf.cell(0, 8, empresa, ln=1, align='L')
+        pdf.cell(0, 8, empresa or 'No especificado', ln=1, align='L')
         pdf.ln(5)
         
         # Mail
         pdf.set_font('Arial', 'B', 12)
         pdf.cell(0, 10, 'Mail:', ln=1)
         pdf.set_font('Arial', '', 12)
-        pdf.cell(0, 8, mail, ln=1)
+        pdf.cell(0, 8, mail or 'No especificado', ln=1)
         pdf.ln(5)
         
         # Descripcion
         pdf.set_font('Arial', 'B', 12)
         pdf.cell(0, 10, 'Descripcion:', ln=1)
         pdf.set_font('Arial', '', 12)
-        pdf.multi_cell(0, 8, descripcion)
+        pdf.multi_cell(0, 8, descripcion or 'No especificado')
         pdf.ln(5)
         
         # Fotos adicionales (Solo Foto 1)

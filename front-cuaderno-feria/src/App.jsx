@@ -125,8 +125,8 @@ function App() {
 
   // Función para enviar email con PDF
   const sendEmailWithPdf = async (pdfFilename) => {
-    if (!mail) {
-      setError('Email del destinatario es requerido para envío');
+    if (!mail || !mail.trim()) {
+      console.log('[DEBUG EMAIL] No hay email proporcionado, saltando envío de correo');
       return false;
     }
 
@@ -176,8 +176,6 @@ function App() {
     setEmailSuccess('');
     
     try {
-      if (!latestPhotoFilename) throw new Error('No hay foto disponible');
-      
       // Debug: verificar qué valores se están enviando
       console.log('[DEBUG FRONTEND] Valores a enviar:');
       console.log('- filename:', latestPhotoFilename);
@@ -189,10 +187,10 @@ function App() {
       
       // Generar el PDF usando los campos individuales
       const pdfForm = new FormData();
-      pdfForm.append('filename', latestPhotoFilename);
-      pdfForm.append('empresa', empresa);
-      pdfForm.append('mail', mail);
-      pdfForm.append('descripcion', descripcion);
+      pdfForm.append('filename', latestPhotoFilename || ''); // Permitir filename vacío
+      pdfForm.append('empresa', empresa || '');
+      pdfForm.append('mail', mail || '');
+      pdfForm.append('descripcion', descripcion || '');
       
       // Enviar información sobre las fotos adicionales
       pdfForm.append('hasPhoto1', photo1 ? 'true' : 'false');
@@ -238,11 +236,14 @@ function App() {
         document.body.removeChild(a);
       }, 100);
       
-      console.log('[DEBUG] PDF generado exitosamente, iniciando envío por email...');
+      console.log('[DEBUG] PDF generado exitosamente, verificando si enviar por email...');
       
-      // Enviar por email si se proporcionó un email
+      // Enviar por email solo si se proporcionó un email válido
       if (mail && mail.trim()) {
+        console.log('[DEBUG EMAIL] Enviando por email a:', mail);
         await sendEmailWithPdf(pdfFilename);
+      } else {
+        console.log('[DEBUG EMAIL] No se envía email: no hay dirección válida');
       }
       
     } catch (err) {
@@ -349,13 +350,19 @@ function App() {
           </div>
         )}
         <div className="button-section">
-          <button type="submit" disabled={loading || emailSending || !latestPhotoFilename}>
-            {loading ? 'Generando PDF...' : emailSending ? 'Enviando por email...' : 'Generar PDF y Enviar'}
+          <button type="submit" disabled={loading || emailSending}>
+            {loading ? 'Generando PDF...' : emailSending ? 'Enviando por email...' : 'Generar PDF'}
           </button>
           
-          {mail && (
+          {mail && mail.trim() && (
             <div className="email-info">
               <small>📧 El PDF será enviado automáticamente a: <strong>{mail}</strong></small>
+            </div>
+          )}
+          
+          {(!mail || !mail.trim()) && (
+            <div className="email-info">
+              <small>📄 Solo se generará el PDF (sin envío por email)</small>
             </div>
           )}
         </div>
