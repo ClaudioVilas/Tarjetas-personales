@@ -56,3 +56,6 @@ frontend.log
 # Fotos de prueba (mantener estructura pero no contenido)
 /cuaderno-feria-cueros/fotos/*.jpg
 !/cuaderno-feria-cueros/fotos/.gitkeep
+# macOS system files
+.DS_Store
+*.log
