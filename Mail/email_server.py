@@ -67,9 +67,8 @@ def send_pdf_email():
                 "message": "Nombre del archivo PDF es requerido"
             }), 400
 
-        # Construir ruta completa al PDF
-        pdf_path = os.path.join('..', 'Pdf Feria', pdf_filename)
-        pdf_path = os.path.abspath(pdf_path)
+        # Usar la lógica de EmailService para la ruta del PDF
+        pdf_path = os.path.join(email_service.pdf_folder, pdf_filename)
         logging.info(f"Ruta PDF construida: {pdf_path}")
         logging.info(f"Intentando enviar PDF: {pdf_path} a {recipient_email}")
 

@@ -30,7 +30,7 @@ function App() {
   // const [photo2Filename, setPhoto2Filename] = useState(null);
 
   // Cambia esta URL si tu backend está en otra IP/puerto
-  const BACKEND_URL = 'http://192.168.1.11:5000'; // Cambia si tu backend está en otra IP
+  const BACKEND_URL = 'http://172.22.8.12:5000'; // Cambia si tu backend está en otra IP
   const EMAIL_SERVICE_URL = 'http://localhost:5001'; // Servicio de email
   
   // Polling para obtener la última foto cada 2 segundos
@@ -226,8 +226,10 @@ function App() {
           pdfFilename = match[1];
         }
       } else if (empresa) {
-        // Generar nombre basado en empresa
-        pdfFilename = `Tarjeta_${empresa.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`;
+        // Generar nombre basado en empresa (igual que backend: espacios -> guion, otros caracteres no válidos -> guion bajo)
+        let empresaFilename = empresa.replace(/ /g, '-');
+        empresaFilename = empresaFilename.replace(/[^a-zA-Z0-9\-]/g, '_');
+        pdfFilename = `${empresaFilename}.pdf`;
       }
       
       setLastGeneratedPdfName(pdfFilename);
