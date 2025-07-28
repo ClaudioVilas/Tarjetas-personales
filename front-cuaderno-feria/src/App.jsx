@@ -234,19 +234,18 @@ function App() {
       
       setLastGeneratedPdfName(pdfFilename);
       
-      const blob = await pdfRes.blob();
-      
-      // Descargar el PDF directamente
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = pdfFilename;
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(() => {
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-      }, 100);
+       // const blob = await pdfRes.blob();
+       // Descargar el PDF directamente (desactivado por requerimiento)
+       // const url = window.URL.createObjectURL(blob);
+       // const a = document.createElement('a');
+       // a.href = url;
+       // a.download = pdfFilename;
+       // document.body.appendChild(a);
+       // a.click();
+       // setTimeout(() => {
+       //   window.URL.revokeObjectURL(url);
+       //   document.body.removeChild(a);
+       // }, 100);
       
       console.log('[DEBUG] PDF generado exitosamente, verificando si enviar por email...');
       
