@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Servicio de envío de emails para el sistema de tarjetas personales
+Servicio de envío de emails para                 server.starttls()  
+                server.ehlo()
+                server.login(self.sender_email, self.smtp_password)sistema de tarjetas personales
 Envía PDFs generados por email usando configuración SMTP segura
 """
 
@@ -84,7 +86,7 @@ class EmailService:
                 server.ehlo()
                 server.starttls()
                 server.ehlo()
-                server.login(self.sender_email, self.sender_password)
+                server.login(self.sender_email, self.smtp_password)
                 server.send_message(msg)
             
             logging.info(f"Email enviado exitosamente a {recipient_email}")
@@ -183,8 +185,11 @@ class EmailService:
     def test_connection(self):
         """Prueba la conexión SMTP"""
         try:
-            with smtplib.SMTP_SSL(self.smtp_server, self.smtp_port) as server:
-                server.login(self.sender_email, self.sender_password)
+            with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+                server.ehlo()
+                server.starttls()  
+                server.ehlo()
+                server.login(self.sender_email, self.smtp_password)
             
             logging.info("Conexión SMTP exitosa")
             return {"success": True, "message": "Conexión SMTP exitosa"}

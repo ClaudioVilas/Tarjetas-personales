@@ -227,4 +227,4 @@ def serve_foto(filename):
     return send_from_directory(FOTOS_FOLDER, filename)
 
 if __name__ == '__main__':
-    app.run(host='172.22.8.12', port=5000)
+    app.run(host='192.168.0.197', port=5000)
