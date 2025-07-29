@@ -143,7 +143,7 @@ function App() {
         empresa: empresa || 'Feria Shanghai 2025'
       };
 
-      console.log('[DEBUG EMAIL] Enviando datos:', emailData);
+      console.log('[DEBUG EMAIL] Enviando datos:', emailData);    
 
       const response = await fetch(`${EMAIL_SERVICE_URL}/send_pdf_email`, {
         method: 'POST',
@@ -152,7 +152,7 @@ function App() {
         },
         body: JSON.stringify(emailData)
       });
-
+console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
@@ -234,18 +234,18 @@ function App() {
       
       setLastGeneratedPdfName(pdfFilename);
       
-       // const blob = await pdfRes.blob();
-       // Descargar el PDF directamente (desactivado por requerimiento)
-       // const url = window.URL.createObjectURL(blob);
-       // const a = document.createElement('a');
-       // a.href = url;
-       // a.download = pdfFilename;
-       // document.body.appendChild(a);
-       // a.click();
-       // setTimeout(() => {
-       //   window.URL.revokeObjectURL(url);
-       //   document.body.removeChild(a);
-       // }, 100);
+      // Descargar el PDF directamente (reactivado por requerimiento)
+      const blob = await pdfRes.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = pdfFilename;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      }, 100);
       
       console.log('[DEBUG] PDF generado exitosamente, verificando si enviar por email...');
       

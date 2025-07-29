@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 PDF_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/Pdf Feria'
-FOTOS_FOLDER = '/Users/claudiovilas/Downloads/Proyecto Tarjetas Feria/cuaderno-feria-cueros/fotos'
+FOTOS_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos'
 
 # Asegurar que las carpetas existan
 os.makedirs(PDF_FOLDER, exist_ok=True)
