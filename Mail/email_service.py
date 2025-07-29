@@ -78,6 +78,9 @@ class EmailService:
             body = self._create_email_body(recipient_name, empresa)
             msg.attach(MIMEText(body, 'html', 'utf-8'))
             
+            # Adjuntar logo
+            self._attach_logo(msg)
+            
             # Adjuntar PDF
             self._attach_pdf(msg, pdf_path, empresa)
             
@@ -126,7 +129,7 @@ class EmailService:
             <style>
                 body {{ font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5; }}
                 .container {{ max-width: 600px; margin: 0 auto; background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }}
-                .header {{ background: linear-gradient(135deg, #8B4513, #A0522D); color: white; padding: 30px; text-align: center; }}
+                .header {{ color: #333; padding: 30px; text-align: center; }}
                 .content {{ padding: 30px; }}
                 .footer {{ background-color: #f8f9fa; padding: 20px; text-align: center; color: #666; }}
                 .highlight {{ color: #8B4513; font-weight: bold; }}
@@ -136,8 +139,7 @@ class EmailService:
         <body>
             <div class="container">
                 <div class="header">
-                    <div class="logo">🏷️ La Pampa Cueros</div>
-                    <h2>Feria Cueros Shanghai 2025</h2>
+                    <img src="cid:logo" alt="La Pampa Cueros" style="max-width: 700px; height: 150px; margin-bottom: 15px;" />
                 </div>
                 <div class="content">
                     <h3>¡Hola{' ' + recipient_name if recipient_name else ''}!</h3>
@@ -148,10 +150,27 @@ class EmailService:
                     <p>En el archivo adjunto encontrarás todos los datos de contacto que nos proporcionaste. Esta tarjeta te permitirá mantener nuestros datos siempre a mano.</p>
                     
                     <h4>📧 Información de contacto:</h4>
+                    
+                    <h5><strong>Main Event:</strong> Feria Cueros Shanghai 2025</h5>
+                    
+                    <h5><strong>Company Information:</strong></h5>
                     <ul>
-                        <li><strong>Email:</strong> info@lapampacueros.com</li>
-                        <li><strong>Empresa:</strong> La Pampa Cueros</li>
-                        <li><strong>Evento:</strong> Feria Cueros Shanghai 2025</li>
+                        <li><strong>Company:</strong> La Pampa Cueros</li>
+                        <li><strong>Mail:</strong> info@lapampacueros.com</li>
+                        <li><strong>Web Site:</strong> www.lapampacueros.com</li>
+                    </ul>
+                    
+                    <h5><strong>Sales:</strong></h5>
+                    <ul>
+                        <li><strong>Sales:</strong> Andrada Daniel</li>
+                        <li><strong>Mail:</strong> info@lapampacueros.com</li>
+                        <li><strong>Mobile:</strong> +54 9 11 5415</li>
+                    </ul>
+                    
+                    <h5><strong>Manager:</strong></h5>
+                    <ul>
+                        <li><strong>Manager:</strong> Vilas Claudio</li>
+                        <li><strong>Mail:</strong> cvilas@coto.com.ar</li>
                     </ul>
                     
                     <p>¡Gracias por tu interés en nuestros productos!</p>
@@ -181,6 +200,22 @@ class EmailService:
         )
         
         msg.attach(part)
+    
+    def _attach_logo(self, msg):
+        """Adjunta el logo al mensaje como imagen embebida"""
+        logo_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'front-cuaderno-feria', 'public', 'Logo.jpg'))
+        
+        if os.path.exists(logo_path):
+            with open(logo_path, 'rb') as logo_file:
+                logo_data = logo_file.read()
+                logo_part = MIMEBase('image', 'jpeg')
+                logo_part.set_payload(logo_data)
+                encoders.encode_base64(logo_part)
+                logo_part.add_header('Content-ID', '<logo>')
+                logo_part.add_header('Content-Disposition', 'inline', filename='logo.jpg')
+                msg.attach(logo_part)
+        else:
+            logging.warning(f"Logo no encontrado en: {logo_path}")
     
     def test_connection(self):
         """Prueba la conexión SMTP"""
