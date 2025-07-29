@@ -75,13 +75,21 @@ def send_pdf_email():
         # Datos opcionales
         recipient_name = data.get('recipient_name', '')
         empresa = data.get('empresa', '')
+        nombreContacto = data.get('nombreContacto', '')
+        posicion = data.get('posicion', '')
+        mail = data.get('mail', '')
+        descripcion = data.get('descripcion', '')
 
         # Enviar email
         result = email_service.send_pdf_email(
             recipient_email=recipient_email,
             recipient_name=recipient_name,
             pdf_path=pdf_path,
-            empresa=empresa
+            empresa=empresa,
+            nombreContacto=nombreContacto,
+            posicion=posicion,
+            mail=mail,
+            descripcion=descripcion
         )
 
         logging.info(f"Resultado envío: {result}")

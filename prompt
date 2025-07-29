@@ -1,35 +1,15 @@
-Necesito que ahora por encima del input que esta recibiendo la foto, insertes un nuevo componente que tambien reciba una foto, pero 
-en este caso va a ser enviada a ese componente por un boton que tambien tenes que agregarlo que va a tener el nombre Boton 1
-la foto que boton 1 va a enviar va a ser a este primer casillero, luego necesito lo mismo pero con un nuevo compoente que va a alojar
-la foto 2, que va a ser recibida luego de hahcer click en el boton 2 que tambien debes generarlo, y asi el fron va a mostrar las dos fotos que se agregaron
+agregar como datos
 
-foto 1 en un aspecto 16:9 al igual que la foto 2
-foto 1 por encima de foto 2
-boton 1 cambiar el nombre a Agregar Foto 1
-boton 2 cambiar el nombre a Agregar Foto 2
-y ambos botones deben tener un estilo de boton primario
-y ambos botones deben estar por debajo de los inputs que reciben las fotos
-luego debajo el boton generar PDF que ya tenes
+Main Event: Feria Cueros Shanghai 2025
 
+Company Information:
+Company: La Pampa Cueros
+Mail: info@lapampacueros.com
+Web Site: www.lapampacueros.com
 
-el formato que debe mantnerse  el PDF es el siguiente: te comparto una foto de ejemplo
+Sales: Andrada Daniel
+Mail: info@lapampacueros.com
+Mobile: +54 9 11 5415
 
-
-tanto la foto 1 como la foto 2 deben tener un boton de borrado de foto, en caso de no querer que haya una foto o de que se muestre alguna
-con este boton se debe eliminar la foto y el boton de borrado debe tener un estilo de boton primario
-
-entiendio que todo esto es una unica solucion genral, subir al repositorio remoto git remote add origin https://github.com/ClaudioVilas/Tarjetas-personales.git
-toda la soluicon completa desde la raiz del proyecto, que es COPIA DE PROYECTO TARJETAS FERIA 2
-
-dentro de la carpeta mail, necesito que montes un servicio de envio de mails que reciba el PDF generado y lo envie a un mail que se le pase como parametro, este servicio debe ser llamado desde el boton generar PDF
-el mail a tomar debe ser el que se ingresa en el input de email que ya tienes implementado
-el mail de donde se va a inviar es info@lapampacueros.com
-la clave es Breakers2@21 (la password) "B mayuscula"
-te adjunto dos fotos con el resto de la info que necesitas y configuracion del servicio de envio de mails
-
-generar una rama tanto en el repositorio local como en el remoto, con el nombre email-service y subir todos los cambios a esa rama
-luego hacer un pull request desde la rama email-service al main
-
-modificar que no sea condicion que todos los campos este completos para generar el pdf 
-ni para hacer el envio de correo inclusive se puede generar pdf si no hay foto,
-y si no hay correo en el input no se debe ejecutar el serviocio de envio de correo
+Manager: Vilas Claudio
+Mail: cvilas@coto.com.ar

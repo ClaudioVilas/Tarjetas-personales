@@ -9,6 +9,8 @@ document.head.appendChild(style);
 
 function App() {
   const [empresa, setEmpresa] = useState('');
+  const [nombreContacto, setNombreContacto] = useState('');
+  const [posicion, setPosicion] = useState('');
   const [mail, setMail] = useState('');
   const [descripcion, setDescripcion] = useState('');
   // Ya no se usa 'text', se envían los campos por separado
@@ -63,6 +65,16 @@ function App() {
 
   const handleEmpresaChange = (e) => {
     setEmpresa(e.target.value);
+    setPdfUrl(null);
+    setError('');
+  };
+  const handleNombreContactoChange = (e) => {
+    setNombreContacto(e.target.value);
+    setPdfUrl(null);
+    setError('');
+  };
+  const handlePosicionChange = (e) => {
+    setPosicion(e.target.value);
     setPdfUrl(null);
     setError('');
   };
@@ -140,7 +152,11 @@ function App() {
         recipient_email: mail,
         recipient_name: empresa || '',
         pdf_filename: pdfFilename,
-        empresa: empresa || 'Feria Shanghai 2025'
+        empresa: empresa || 'Feria Shanghai 2025',
+        nombreContacto: nombreContacto || '',
+        posicion: posicion || '',
+        mail: mail || '',
+        descripcion: descripcion || ''
       };
 
       console.log('[DEBUG EMAIL] Enviando datos:', emailData);    
@@ -190,6 +206,8 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
       console.log('[DEBUG FRONTEND] Valores a enviar:');
       console.log('- filename:', latestPhotoFilename);
       console.log('- empresa:', empresa);
+      console.log('- nombreContacto:', nombreContacto);
+      console.log('- posicion:', posicion);
       console.log('- mail:', mail);
       console.log('- descripcion:', descripcion);
       console.log('- photo1:', photo1 ? 'Sí' : 'No');
@@ -199,6 +217,8 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
       const pdfForm = new FormData();
       pdfForm.append('filename', latestPhotoFilename || ''); // Permitir filename vacío
       pdfForm.append('empresa', empresa || '');
+      pdfForm.append('nombreContacto', nombreContacto || '');
+      pdfForm.append('posicion', posicion || '');
       pdfForm.append('mail', mail || '');
       pdfForm.append('descripcion', descripcion || '');
       
@@ -280,6 +300,14 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
           <label>
             <span>Nombre de la empresa:</span>
             <input type="text" value={empresa} onChange={handleEmpresaChange} />
+          </label>
+          <label>
+            <span>Nombre de contacto:</span>
+            <input type="text" value={nombreContacto} onChange={handleNombreContactoChange} />
+          </label>
+          <label>
+            <span>Posición:</span>
+            <input type="text" value={posicion} onChange={handlePosicionChange} />
           </label>
           <label>
             <span>Mail:</span>

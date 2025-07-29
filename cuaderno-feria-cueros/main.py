@@ -25,6 +25,8 @@ def generate_pdf():
         
         filename = request.form.get('filename', '').strip()
         empresa = request.form.get('empresa', '').strip()
+        nombreContacto = request.form.get('nombreContacto', '').strip()
+        posicion = request.form.get('posicion', '').strip()
         mail = request.form.get('mail', '').strip()
         descripcion = request.form.get('descripcion', '').strip()
         hasPhoto1 = request.form.get('hasPhoto1', 'false') == 'true'
@@ -34,6 +36,8 @@ def generate_pdf():
         
         print(f"[DEBUG] filename: '{filename}'")
         print(f"[DEBUG] empresa: '{empresa}'")
+        print(f"[DEBUG] nombreContacto: '{nombreContacto}'")
+        print(f"[DEBUG] posicion: '{posicion}'")
         print(f"[DEBUG] mail: '{mail}'")
         print(f"[DEBUG] descripcion: '{descripcion}'")
         print(f"[DEBUG] hasPhoto1: {hasPhoto1}")
@@ -78,6 +82,20 @@ def generate_pdf():
         pdf.cell(0, 10, f'Nombre de la empresa:', ln=1, align='L')
         pdf.set_font('Arial', '', 12)
         pdf.cell(0, 8, empresa or 'No especificado', ln=1, align='L')
+        pdf.ln(5)
+        
+        # Nombre de contacto
+        pdf.set_font('Arial', 'B', 12)
+        pdf.cell(0, 10, 'Nombre de contacto:', ln=1, align='L')
+        pdf.set_font('Arial', '', 12)
+        pdf.cell(0, 8, nombreContacto or 'No especificado', ln=1, align='L')
+        pdf.ln(5)
+        
+        # Posición
+        pdf.set_font('Arial', 'B', 12)
+        pdf.cell(0, 10, 'Posición:', ln=1, align='L')
+        pdf.set_font('Arial', '', 12)
+        pdf.cell(0, 8, posicion or 'No especificado', ln=1, align='L')
         pdf.ln(5)
         
         # Mail

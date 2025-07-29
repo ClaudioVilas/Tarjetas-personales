@@ -50,7 +50,7 @@ class EmailService:
         logging.info(f"   🔒 SSL/TLS: {self.use_tls}")
         logging.info(f"   📁 Carpeta PDF: {self.pdf_folder}")
         
-    def send_pdf_email(self, recipient_email, recipient_name="", pdf_path="", empresa=""):
+    def send_pdf_email(self, recipient_email, recipient_name="", pdf_path="", empresa="", nombreContacto="", posicion="", mail="", descripcion=""):
         """
         Envía un email con el PDF adjunto
         
@@ -59,6 +59,10 @@ class EmailService:
             recipient_name (str): Nombre del destinatario (opcional)
             pdf_path (str): Ruta al archivo PDF
             empresa (str): Nombre de la empresa para personalizar el mensaje
+            nombreContacto (str): Nombre de contacto
+            posicion (str): Posición del contacto
+            mail (str): Email del contacto
+            descripcion (str): Descripción
             
         Returns:
             dict: Resultado del envío con status y mensaje
@@ -75,7 +79,7 @@ class EmailService:
             msg['Subject'] = f"Tarjeta de Contacto - {empresa if empresa else 'Feria Cueros Shanghai 2025'}"
             
             # Cuerpo del email
-            body = self._create_email_body(recipient_name, empresa)
+            body = self._create_email_body(recipient_name, empresa, nombreContacto, posicion, mail, descripcion)
             msg.attach(MIMEText(body, 'html', 'utf-8'))
             
             # Adjuntar logo
@@ -119,7 +123,7 @@ class EmailService:
             logging.error(error_msg)
             return {"success": False, "message": error_msg}
     
-    def _create_email_body(self, recipient_name, empresa):
+    def _create_email_body(self, recipient_name, empresa, nombreContacto="", posicion="", mail="", descripcion=""):
         """Crea el cuerpo HTML del email"""
         return f"""
         <!DOCTYPE html>
@@ -149,9 +153,21 @@ class EmailService:
                     
                     <p>En el archivo adjunto encontrarás todos los datos de contacto que nos proporcionaste. Esta tarjeta te permitirá mantener nuestros datos siempre a mano.</p>
                     
+                    
                     <h4>📧 Información de contacto:</h4>
                     
                     <h5><strong>Main Event:</strong> Feria Cueros Shanghai 2025</h5>
+                    
+                    
+                    <h5><strong>Contact Information:</strong></h5>
+                    <ul>
+                        <li><strong>Company:</strong> {empresa if empresa else 'No especificado'}</li>
+                        <li><strong>Contact Name:</strong> {nombreContacto if nombreContacto else 'No especificado'}</li>
+                        <li><strong>Position:</strong> {posicion if posicion else 'No especificado'}</li>
+                        <li><strong>Email:</strong> {mail if mail else 'No especificado'}</li>
+                        <li><strong>Description:</strong> {descripcion if descripcion else 'No especificado'}</li>
+                    </ul>
+
                     
                     <h5><strong>Company Information:</strong></h5>
                     <ul>
