@@ -31,8 +31,11 @@ function App() {
   const [photo1Filename, setPhoto1Filename] = useState(null);
   // const [photo2Filename, setPhoto2Filename] = useState(null);
 
+  // Estado para la IP del servidor
+  const [serverIP, setServerIP] = useState('');
+
   // Cambia esta URL si tu backend está en otra IP/puerto
-  const BACKEND_URL = 'http://192.168.0.197:5000'; // Cambia si tu backend está en otra IP
+  const BACKEND_URL = 'http://172.40.210.24:5000'; // Cambia si tu backend está en otra IP
   const EMAIL_SERVICE_URL = 'http://localhost:5001'; // Servicio de email
   
   // Polling para obtener la última foto cada 2 segundos
@@ -56,6 +59,14 @@ function App() {
       }
     }, 2000);
     return () => clearInterval(interval);
+  }, [BACKEND_URL]);
+
+  // Efecto para obtener la IP del servidor al cargar
+  useEffect(() => {
+    // Extraer la IP de la URL del backend
+    const url = new URL(BACKEND_URL);
+    const ip = url.hostname;
+    setServerIP(ip);
   }, [BACKEND_URL]);
 
 
@@ -295,6 +306,11 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
       <h1>
         Datos de Contactos Feria Cueros Shanghai 2025
       </h1>
+      {serverIP && (
+        <div className="server-info">
+          <p><strong>🖥️ IP del Servidor:</strong> {serverIP}</p>
+        </div>
+      )}
       <form onSubmit={handleSubmit} className="pdf-form">
         <div className="form-fields">
           <label>

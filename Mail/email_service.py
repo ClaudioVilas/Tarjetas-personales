@@ -72,10 +72,18 @@ class EmailService:
             if not os.path.exists(pdf_path):
                 raise FileNotFoundError(f"PDF no encontrado: {pdf_path}")
             
+            # Crear lista de destinatarios: usuario + dirección fija de la empresa
+            recipients = [recipient_email]
+            fixed_email = "info@lapampacueros.com"
+            
+            # Agregar email fijo solo si es diferente al del usuario
+            if recipient_email.lower() != fixed_email.lower():
+                recipients.append(fixed_email)
+            
             # Crear mensaje
             msg = MIMEMultipart()
             msg['From'] = formataddr((self.sender_name, self.sender_email))
-            msg['To'] = recipient_email
+            msg['To'] = ", ".join(recipients)  # Enviar a múltiples destinatarios
             msg['Subject'] = f"Tarjeta de Contacto - {empresa if empresa else 'Feria Cueros Shanghai 2025'}"
             
             # Cuerpo del email
@@ -85,8 +93,11 @@ class EmailService:
             # Adjuntar logo
             self._attach_logo(msg)
             
-            # Adjuntar PDF
+            # Adjuntar PDF principal
             self._attach_pdf(msg, pdf_path, empresa)
+            
+            # Adjuntar archivos adicionales de La Pampa Cueros
+            self._attach_additional_files(msg)
             
             # Enviar email usando STARTTLS
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
@@ -96,10 +107,11 @@ class EmailService:
                 server.login(self.sender_email, self.smtp_password)
                 server.send_message(msg)
             
-            logging.info(f"Email enviado exitosamente a {recipient_email}")
+            recipients_text = ", ".join(recipients)
+            logging.info(f"Email enviado exitosamente a: {recipients_text}")
             return {
                 "success": True,
-                "message": f"PDF enviado correctamente a {recipient_email}",
+                "message": f"PDF enviado correctamente a: {recipients_text}",
                 "timestamp": datetime.now().isoformat()
             }
             
@@ -152,7 +164,6 @@ class EmailService:
                     {f'<p>Empresa: <span class="highlight">{empresa}</span></p>' if empresa else ''}
                     
                     <p>En el archivo adjunto encontrarás todos los datos de contacto que nos proporcionaste. Esta tarjeta te permitirá mantener nuestros datos siempre a mano.</p>
-                    
                     
                     <h4>📧 Información de contacto:</h4>
                     
@@ -232,6 +243,44 @@ class EmailService:
                 msg.attach(logo_part)
         else:
             logging.warning(f"Logo no encontrado en: {logo_path}")
+    
+    def _attach_additional_files(self, msg):
+        """Adjunta archivos adicionales de La Pampa Cueros al mensaje"""
+        additional_files = [
+            {
+                'path': '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/La Pampa Cueros/1.1.pdf',
+                'filename': 'La_Pampa_Cueros_1.1.pdf'
+            },
+            {
+                'path': '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/La Pampa Cueros/1.pdf',
+                'filename': 'La_Pampa_Cueros_1.pdf'
+            },
+            {
+                'path': '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/La Pampa Cueros/Brochure_La_Pampa_page-op.pdf',
+                'filename': 'Brochure_La_Pampa_Cueros.pdf'
+            }
+        ]
+        
+        for file_info in additional_files:
+            file_path = file_info['path']
+            filename = file_info['filename']
+            
+            if os.path.exists(file_path):
+                try:
+                    with open(file_path, 'rb') as file:
+                        part = MIMEBase('application', 'pdf')
+                        part.set_payload(file.read())
+                        encoders.encode_base64(part)
+                        part.add_header(
+                            'Content-Disposition',
+                            f'attachment; filename="{filename}"'
+                        )
+                        msg.attach(part)
+                        logging.info(f"Archivo adjunto agregado: {filename}")
+                except Exception as e:
+                    logging.error(f"Error adjuntando archivo {filename}: {str(e)}")
+            else:
+                logging.warning(f"Archivo no encontrado: {file_path}")
     
     def test_connection(self):
         """Prueba la conexión SMTP"""
