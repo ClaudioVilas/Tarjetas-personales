@@ -4,6 +4,8 @@ from flask_cors import CORS
 from datetime import datetime
 import os
 from fpdf import FPDF
+from PIL import Image
+import tempfile
 
 app = Flask(__name__)
 CORS(app)
@@ -14,6 +16,39 @@ FOTOS_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2
 # Asegurar que las carpetas existan
 os.makedirs(PDF_FOLDER, exist_ok=True)
 os.makedirs(FOTOS_FOLDER, exist_ok=True)
+
+def compress_image(image_path, quality=70):
+    """
+    Comprime una imagen al 70% de calidad y devuelve la ruta del archivo temporal comprimido
+    """
+    try:
+        # Usar PIL/Pillow si está disponible, sino devolver la imagen original
+        from PIL import Image
+        
+        # Abrir la imagen
+        img = Image.open(image_path)
+        
+        # Convertir a RGB si es necesario (para JPEG)
+        if img.mode != 'RGB':
+            img = img.convert('RGB')
+        
+        # Crear archivo temporal para la imagen comprimida
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.jpg')
+        temp_path = temp_file.name
+        temp_file.close()
+        
+        # Guardar con compresión
+        img.save(temp_path, 'JPEG', quality=quality, optimize=True)
+        
+        print(f"[DEBUG] Imagen comprimida: {image_path} -> {temp_path} (calidad {quality}%)")
+        return temp_path
+        
+    except ImportError:
+        print("[WARNING] PIL/Pillow no disponible, usando imagen original sin compresión")
+        return image_path
+    except Exception as e:
+        print(f"[ERROR] Error comprimiendo imagen: {e}")
+        return image_path
 
 # Endpoint para generar PDF
 @app.route('/generate_pdf', methods=['POST'])
@@ -120,9 +155,19 @@ def generate_pdf():
                 pdf.ln(5)
                 photo1_path = os.path.join(FOTOS_FOLDER, photo1_filename)
                 if os.path.exists(photo1_path):
+                    # Comprimir imagen al 70% de calidad
+                    compressed_photo1_path = compress_image(photo1_path, quality=70)
+                    
                     # Foto 1 en aspecto 16:9, doble de tamaño, alineada a la izquierda
-                    pdf.image(photo1_path, x=pdf.get_x(), y=pdf.get_y(), w=160, h=90)
+                    pdf.image(compressed_photo1_path, x=pdf.get_x(), y=pdf.get_y(), w=160, h=90)
                     pdf.ln(95)
+                    
+                    # Limpiar archivo temporal si se creó uno
+                    if compressed_photo1_path != photo1_path:
+                        try:
+                            os.unlink(compressed_photo1_path)
+                        except:
+                            pass
                 else:
                     print(f"[!] Foto 1 no encontrada: {photo1_path}")
                     pdf.ln(100)
