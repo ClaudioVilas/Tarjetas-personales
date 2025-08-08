@@ -290,4 +290,7 @@ def serve_foto(filename):
     return send_from_directory(FOTOS_FOLDER, filename)
 
 if __name__ == '__main__':
-    app.run(host='172.40.210.24', port=5000)
+    # Usar variables de entorno para host y puerto
+    host = os.environ.get('FLASK_HOST', '0.0.0.0')
+    port = int(os.environ.get('FLASK_PORT', 5000))
+    app.run(host=host, port=port)

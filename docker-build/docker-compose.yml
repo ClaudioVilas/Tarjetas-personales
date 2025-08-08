@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  # Servicio de configuración de IP dinámica
+  ip-config:
+    build:
+      context: .
+      dockerfile: services/ip-config.Dockerfile
+    container_name: tarjetas-ip-config
+    volumes:
+      - shared-config:/shared/config
+    networks:
+      - tarjetas-network
+    restart: unless-stopped
+
+  # Backend - Generación de PDFs
+  backend:
+    build:
+      context: .
+      dockerfile: services/backend.Dockerfile
+    container_name: tarjetas-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - shared-config:/shared/config:ro
+      - shared-pdf:/shared/pdf-output
+      - ./data/backend/fotos:/app/fotos
+      - ./data/backend/uploads:/app/uploads
+    networks:
+      - tarjetas-network
+    depends_on:
+      - ip-config
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=production
+      - CONFIG_DIR=/shared/config
+
+  # Servicio de Email
+  email-service:
+    build:
+      context: .
+      dockerfile: services/email.Dockerfile
+    container_name: tarjetas-email
+    ports:
+      - "5001:5001"
+    volumes:
+      - shared-config:/shared/config:ro
+      - shared-pdf:/shared/pdf-output:ro
+      - ./data/email/attachments:/app/attachments:ro
+    networks:
+      - tarjetas-network
+    depends_on:
+      - ip-config
+      - backend
+    restart: unless-stopped
+    environment:
+      - CONFIG_DIR=/shared/config
+
+  # Frontend - Interface de usuario
+  frontend:
+    build:
+      context: .
+      dockerfile: services/frontend.Dockerfile
+    container_name: tarjetas-frontend
+    ports:
+      - "80:80"
+      - "5173:80"  # Puerto alternativo para desarrollo
+    volumes:
+      - shared-config:/shared/config:ro
+    networks:
+      - tarjetas-network
+    depends_on:
+      - ip-config
+      - backend
+      - email-service
+    restart: unless-stopped
+    environment:
+      - CONFIG_DIR=/shared/config
+
+networks:
+  tarjetas-network:
+    driver: bridge
+
+volumes:
+  shared-config:
+    driver: local
+  shared-pdf:
+    driver: local

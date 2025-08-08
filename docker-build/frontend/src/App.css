@@ -1,0 +1,426 @@
+/* CSS básico para la aplicación PDF */
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: 2;
+}
+
+.server-info {
+  position: absolute;
+  top: 4.5rem;
+  left: 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+  z-index: 2;
+}
+
+.server-info p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.container {
+  position: relative;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 8px 32px rgba(60,60,120,0.18);
+  border-radius: 24px;
+  padding: 2.5rem;
+  max-width: 900px;
+  width: 100%;
+  margin: 2rem auto;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(200,200,255,0.18);
+  transition: box-shadow 0.3s, transform 0.3s;
+  animation: fadeIn 0.7s;
+}
+
+.container:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 48px rgba(60,60,120,0.22);
+}
+
+.pdf-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: rgba(255,255,255,0.7);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(60,60,120,0.08);
+  padding: 2rem;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.image-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 7cm;
+}
+
+.latest-photo {
+  text-align: center;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(60,60,120,0.10);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.latest-photo img {
+  width: 15cm;
+  height: 7cm;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60,60,120,0.12);
+  transition: transform 0.3s;
+}
+
+.latest-photo img:hover {
+  transform: scale(1.03);
+}
+
+.button-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.error {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #fca5a5;
+  margin-top: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(102,126,234,0.12);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(102,126,234,0.18);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(102,126,234,0.12);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  min-width: 150px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(102,126,234,0.18);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(220,53,69,0.12);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  min-width: 150px;
+}
+
+.btn-delete:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(220,53,69,0.18);
+  background: linear-gradient(135deg, #c82333, #bd2130);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background: #fafafa;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(102,126,234,0.10);
+  transform: translateY(-1px);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.additional-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.photo-container {
+  text-align: center;
+}
+
+.photo-display {
+  width: 100%;
+  max-width: 600px;
+  height: 337px;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60,60,120,0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.photo-display:hover {
+  box-shadow: 0 4px 16px rgba(60,60,120,0.12);
+  transform: translateY(-1px);
+}
+
+.photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: #ffffff;
+  rotate: -90deg;
+}
+
+.photo-placeholder {
+  color: #666;
+}
+
+.photo-btns {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.latest-photo-img {
+  max-width: 380px;
+  max-height: 400px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60,60,120,0.12);
+  background-color: #ffffff;
+  transition: transform 0.3s;
+  rotate: -90deg;
+}
+
+.latest-photo-img:hover {
+  transform: scale(1.03);
+}
+
+.additional-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.additional-photos h3 {
+  color: #374151;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.photo-container {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.photo-container .btn-primary {
+  margin-top: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para el servicio de email */
+.email-info {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+  border-radius: 8px;
+  border-left: 4px solid #2196f3;
+  text-align: center;
+}
+
+.email-info small {
+  color: #666;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.email-info strong {
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.success {
+  padding: 1rem;
+  background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+  color: #2e7d32;
+  border: 1px solid #81c784;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  animation: slideIn 0.5s ease;
+}
+
+.error {
+  padding: 1rem;
+  background: linear-gradient(135deg, #ffebee, #fce4ec);
+  color: #c62828;
+  border: 1px solid #e57373;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  animation: slideIn 0.5s ease;
+}
+
+/* Mejorar el botón principal para mostrar estado de email */
+.button-section button:disabled {
+  background: linear-gradient(135deg, #bdbdbd, #9e9e9e);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button-section button:not(:disabled):hover {
+  background: linear-gradient(135deg, #5e72e4, #6c5ce7);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 1rem;
+    max-width: 100vw;
+  }
+  .pdf-form {
+    gap: 1.2rem;
+    padding: 1rem;
+  }
+  .button-section {
+    margin-top: 1rem;
+  }
+  .latest-photo-img {
+    max-width: 250px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+  }
+  .btn-primary, .btn-delete {
+    width: 180px;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+  .additional-photos .photo-display {
+    max-width: 480px;
+    height: 270px;
+  }
+  .photo-container > div:last-child {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .email-info {
+    padding: 0.6rem;
+    margin-top: 0.8rem;
+  }
+  
+  .email-info small {
+    font-size: 0.8rem;
+  }
+}
