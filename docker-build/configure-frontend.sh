@@ -26,14 +26,46 @@ fi
 
 echo "🌐 IP Local detectada: $LOCAL_IP"
 
-# Crear archivo de configuración para el frontend
+# Asegurar que el directorio dist existe
+mkdir -p "$NGINX_HTML/dist"
+
+# Determinar URLs basándose en el contexto de ejecución
+# Si el frontend está expuesto en puerto 5173 (desarrollo), usar localhost
+# Si está en puerto 80 (producción), usar IP interna
+if [ "$FRONTEND_PORT" = "5173" ] || [ -n "$DEV_MODE" ]; then
+    BACKEND_URL="http://localhost:5000"
+    EMAIL_SERVICE_URL="http://localhost:5001"
+    FRONTEND_URL="http://localhost:5173"
+    echo "🔧 Modo desarrollo: usando localhost"
+else
+    BACKEND_URL="http://$LOCAL_IP:5000"
+    EMAIL_SERVICE_URL="http://$LOCAL_IP:5001"
+    FRONTEND_URL="http://$LOCAL_IP:80"
+    echo "🔧 Modo producción: usando IP interna"
+fi
+
+# Crear archivo de configuración para el frontend en el directorio dist
+cat > "$NGINX_HTML/dist/config.js" << EOF
+// Configuración dinámica generada automáticamente
+window.APP_CONFIG = {
+  LOCAL_IP: '$LOCAL_IP',
+  BACKEND_URL: '$BACKEND_URL',
+  EMAIL_SERVICE_URL: '$EMAIL_SERVICE_URL',
+  FRONTEND_URL: '$FRONTEND_URL',
+  TIMESTAMP: '$(date -Iseconds)'
+};
+
+console.log('🔧 Configuración cargada:', window.APP_CONFIG);
+EOF
+
+# También crear en la raíz para compatibilidad
 cat > "$NGINX_HTML/config.js" << EOF
 // Configuración dinámica generada automáticamente
 window.APP_CONFIG = {
   LOCAL_IP: '$LOCAL_IP',
-  BACKEND_URL: 'http://$LOCAL_IP:5000',
-  EMAIL_SERVICE_URL: 'http://$LOCAL_IP:5001',
-  FRONTEND_URL: 'http://$LOCAL_IP:80',
+  BACKEND_URL: '$BACKEND_URL',
+  EMAIL_SERVICE_URL: '$EMAIL_SERVICE_URL',
+  FRONTEND_URL: '$FRONTEND_URL',
   TIMESTAMP: '$(date -Iseconds)'
 };
 
@@ -42,8 +74,8 @@ EOF
 
 # Reemplazar placeholders en archivos HTML/JS si existen
 if [ -d "$NGINX_HTML/assets" ]; then
-    find "$NGINX_HTML/assets" -name "*.js" -type f -exec sed -i "s|DYNAMIC_BACKEND_URL|http://$LOCAL_IP:5000|g" {} \;
-    find "$NGINX_HTML/assets" -name "*.js" -type f -exec sed -i "s|DYNAMIC_EMAIL_URL|http://$LOCAL_IP:5001|g" {} \;
+    find "$NGINX_HTML/assets" -name "*.js" -type f -exec sed -i "s|DYNAMIC_BACKEND_URL|$BACKEND_URL|g" {} \;
+    find "$NGINX_HTML/assets" -name "*.js" -type f -exec sed -i "s|DYNAMIC_EMAIL_URL|$EMAIL_SERVICE_URL|g" {} \;
 fi
 
 # Crear script de recarga de configuración
@@ -64,8 +96,9 @@ setInterval(reloadConfig, 30000);
 EOF
 
 echo "✅ Frontend configurado para IP: $LOCAL_IP"
-echo "📡 Backend: http://$LOCAL_IP:5000"
-echo "📧 Email Service: http://$LOCAL_IP:5001"
+echo "📡 Backend: $BACKEND_URL"
+echo "📧 Email Service: $EMAIL_SERVICE_URL"
+echo "🌐 Frontend: $FRONTEND_URL"
 
 # Iniciar nginx
 exec nginx -g "daemon off;"

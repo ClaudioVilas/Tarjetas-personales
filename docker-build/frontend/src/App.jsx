@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { getConfig } from './config.js';
 
 // Estilo global para centrar el div principal
 const style = document.createElement('style');
@@ -34,9 +35,10 @@ function App() {
   // Estado para la IP del servidor
   const [serverIP, setServerIP] = useState('');
 
-  // Cambia esta URL si tu backend está en otra IP/puerto
-  const BACKEND_URL = 'http://172.40.210.24:5000'; // Cambia si tu backend está en otra IP
-  const EMAIL_SERVICE_URL = 'http://localhost:5001'; // Servicio de email
+  // Obtener configuración dinámica
+  const config = getConfig();
+  const BACKEND_URL = config.BACKEND_URL;
+  const EMAIL_SERVICE_URL = config.EMAIL_SERVICE_URL;
   
   // Polling para obtener la última foto cada 2 segundos
   useEffect(() => {
@@ -63,11 +65,19 @@ function App() {
 
   // Efecto para obtener la IP del servidor al cargar
   useEffect(() => {
-    // Extraer la IP de la URL del backend
-    const url = new URL(BACKEND_URL);
-    const ip = url.hostname;
-    setServerIP(ip);
-  }, [BACKEND_URL]);
+    // Usar la IP de la configuración dinámica o extraer de la URL del backend
+    if (config.LOCAL_IP && config.LOCAL_IP !== 'localhost') {
+      setServerIP(config.LOCAL_IP);
+    } else {
+      try {
+        const url = new URL(BACKEND_URL);
+        const ip = url.hostname;
+        setServerIP(ip);
+      } catch (e) {
+        setServerIP('localhost');
+      }
+    }
+  }, [BACKEND_URL, config.LOCAL_IP]);
 
 
 

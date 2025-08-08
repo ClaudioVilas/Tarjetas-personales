@@ -76,6 +76,8 @@ services:
     restart: unless-stopped
     environment:
       - CONFIG_DIR=/shared/config
+      - DEV_MODE=true
+      - FRONTEND_PORT=5173
 
 networks:
   tarjetas-network:
