@@ -45,15 +45,22 @@ class EmailService:
         # En Docker, el volumen se monta en /shared/pdf-output
         self.pdf_folder = os.environ.get('PDF_FOLDER', '/shared/pdf-output')
         
+        # Carpeta de archivos adicionales (La Pampa Cueros)
+        self.attachments_folder = os.environ.get('ATTACHMENTS_FOLDER', '/app/la-pampa-files')
+        
         # Fallback para desarrollo local
         if not os.path.exists(self.pdf_folder):
             self.pdf_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'Pdf Feria'))
+        
+        if not os.path.exists(self.attachments_folder):
+            self.attachments_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'La Pampa Cueros'))
         
         logging.info(f"📧 EmailService inicializado:")
         logging.info(f"   📡 Servidor SMTP: {self.smtp_server}:{self.smtp_port}")
         logging.info(f"   👤 Usuario: {self.smtp_user}")
         logging.info(f"   🔒 SSL/TLS: {self.use_tls}")
         logging.info(f"   📁 Carpeta PDF: {self.pdf_folder}")
+        logging.info(f"   📎 Carpeta Adjuntos: {self.attachments_folder}")
         
     def send_pdf_email(self, recipient_email, recipient_name="", pdf_path="", empresa="", nombreContacto="", posicion="", mail="", descripcion=""):
         """
@@ -253,22 +260,23 @@ class EmailService:
         """Adjunta archivos adicionales de La Pampa Cueros al mensaje"""
         additional_files = [
             {
-                'path': '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/La Pampa Cueros/1.1.pdf',
-                'filename': 'La_Pampa_Cueros_1.1.pdf'
+                'filename': '1.1.pdf',
+                'display_name': 'La_Pampa_Cueros_1.1.pdf'
             },
             {
-                'path': '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/La Pampa Cueros/1.pdf',
-                'filename': 'La_Pampa_Cueros_1.pdf'
+                'filename': '1.pdf',
+                'display_name': 'La_Pampa_Cueros_1.pdf'
             },
             {
-                'path': '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/La Pampa Cueros/Brochure_La_Pampa_page-op.pdf',
-                'filename': 'Brochure_La_Pampa_Cueros.pdf'
+                'filename': 'Brochure_La_Pampa_page-op.pdf',
+                'display_name': 'Brochure_La_Pampa_Cueros.pdf'
             }
         ]
         
         for file_info in additional_files:
-            file_path = file_info['path']
             filename = file_info['filename']
+            display_name = file_info['display_name']
+            file_path = os.path.join(self.attachments_folder, filename)
             
             if os.path.exists(file_path):
                 try:
@@ -278,12 +286,12 @@ class EmailService:
                         encoders.encode_base64(part)
                         part.add_header(
                             'Content-Disposition',
-                            f'attachment; filename="{filename}"'
+                            f'attachment; filename="{display_name}"'
                         )
                         msg.attach(part)
-                        logging.info(f"Archivo adjunto agregado: {filename}")
+                        logging.info(f"Archivo adjunto agregado: {display_name} desde {file_path}")
                 except Exception as e:
-                    logging.error(f"Error adjuntando archivo {filename}: {str(e)}")
+                    logging.error(f"Error adjuntando archivo {display_name}: {str(e)}")
             else:
                 logging.warning(f"Archivo no encontrado: {file_path}")
     

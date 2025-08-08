@@ -49,6 +49,7 @@ services:
       - shared-config:/shared/config:ro
       - shared-pdf:/shared/pdf-output:ro
       - ./data/email/attachments:/app/attachments:ro
+      - ../La Pampa Cueros:/app/la-pampa-files:ro
     networks:
       - tarjetas-network
     depends_on:
@@ -58,6 +59,7 @@ services:
     environment:
       - CONFIG_DIR=/shared/config
       - PDF_FOLDER=/shared/pdf-output
+      - ATTACHMENTS_FOLDER=/app/la-pampa-files
 
   # Frontend - Interface de usuario
   frontend:
