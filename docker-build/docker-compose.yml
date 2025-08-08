@@ -34,6 +34,8 @@ services:
     environment:
       - FLASK_ENV=production
       - CONFIG_DIR=/shared/config
+      - PDF_FOLDER=/shared/pdf-output
+      - FOTOS_FOLDER=/app/fotos
 
   # Servicio de Email
   email-service:
@@ -55,6 +57,7 @@ services:
     restart: unless-stopped
     environment:
       - CONFIG_DIR=/shared/config
+      - PDF_FOLDER=/shared/pdf-output
 
   # Frontend - Interface de usuario
   frontend:

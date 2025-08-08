@@ -41,8 +41,13 @@ class EmailService:
         self.sender_email = "info@lapampacueros.com"
         self.sender_name = "La Pampa Cueros - Feria Shanghai 2025"
         
-        # Configuración de archivos - Ruta absoluta correcta
-        self.pdf_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Pdf Feria'))
+        # Configuración de archivos - Usar volumen compartido Docker
+        # En Docker, el volumen se monta en /shared/pdf-output
+        self.pdf_folder = os.environ.get('PDF_FOLDER', '/shared/pdf-output')
+        
+        # Fallback para desarrollo local
+        if not os.path.exists(self.pdf_folder):
+            self.pdf_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'Pdf Feria'))
         
         logging.info(f"📧 EmailService inicializado:")
         logging.info(f"   📡 Servidor SMTP: {self.smtp_server}:{self.smtp_port}")

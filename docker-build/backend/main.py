@@ -10,8 +10,16 @@ import tempfile
 app = Flask(__name__)
 CORS(app)
 
-PDF_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/Pdf Feria'
-FOTOS_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos'
+# Configuración de carpetas usando variables de entorno para Docker
+PDF_FOLDER = os.environ.get('PDF_FOLDER', '/shared/pdf-output')
+FOTOS_FOLDER = os.environ.get('FOTOS_FOLDER', '/app/fotos')
+
+# Fallback para desarrollo local
+if not os.path.exists(PDF_FOLDER):
+    PDF_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/Pdf Feria'
+
+if not os.path.exists(FOTOS_FOLDER):
+    FOTOS_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos'
 
 # Asegurar que las carpetas existan
 os.makedirs(PDF_FOLDER, exist_ok=True)
