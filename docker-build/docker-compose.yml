@@ -12,6 +12,8 @@ services:
     networks:
       - tarjetas-network
     restart: unless-stopped
+    environment:
+      - EXTERNAL_IP=192.168.1.22
 
   # Backend - Generación de PDFs
   backend:

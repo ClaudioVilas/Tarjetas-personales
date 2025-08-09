@@ -8,9 +8,20 @@ UPDATE_INTERVAL=${UPDATE_INTERVAL:-30}
 echo "🔍 Iniciando servicio de configuración de IP dinámica..."
 echo "📁 Directorio de configuración: $CONFIG_DIR"
 echo "⏱️  Intervalo de actualización: ${UPDATE_INTERVAL}s"
+if [ -n "$EXTERNAL_IP" ]; then
+    echo "🌍 IP externa configurada manualmente: $EXTERNAL_IP"
+else
+    echo "🔍 Detectando IP automáticamente desde el contenedor"
+fi
 
 # Función para detectar la IP local (simplificada para BusyBox)
 detect_local_ip() {
+    # Si hay una IP externa configurada manualmente, usarla
+    if [ -n "$EXTERNAL_IP" ]; then
+        echo "$EXTERNAL_IP"
+        return
+    fi
+    
     # Método simple usando el gateway por defecto
     ip route show | grep default | head -1 | awk '{print $9}'
 }

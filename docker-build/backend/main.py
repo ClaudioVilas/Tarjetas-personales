@@ -241,8 +241,10 @@ def upload_file():
     print(f"request.data length: {len(request.data)}")
     print(f"request.files: {request.files}")
     print(f"request.form: {request.form}")
+    print(f"request.args: {request.args}")
 
-    empresa = request.form.get('empresa', '').strip()
+    # Intentar obtener empresa desde form (multipart) o args (query parameters del iPhone)
+    empresa = request.form.get('empresa', '').strip() or request.args.get('empresa', '').strip()
     import re
     if empresa:
         empresa_filename = re.sub(r'[^a-zA-Z0-9_-]', '_', empresa)
