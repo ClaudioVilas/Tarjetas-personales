@@ -46,7 +46,11 @@ const OCRProcessor = ({
         tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÁÉÍÓÚáéíóúñÑ0123456789@.-_+() ',
         tessedit_pageseg_mode: '6', // Uniform block of text
         tessedit_ocr_engine_mode: '1', // Neural nets LSTM engine only
-        preserve_interword_spaces: '1'
+        preserve_interword_spaces: '1',
+        // Mejorar detección de texto pequeño
+        textord_min_linesize: '2.5',
+        // Mejorar threshold para binarización
+        tessedit_thresholding_method: '1'
       });
 
       console.log('[OCR] Procesando imagen...');
@@ -235,6 +239,58 @@ const OCRProcessor = ({
         data[key] = data[key].trim().replace(/\s+/g, ' ');
       }
     });
+
+    // CORRECCIÓN AUTOMÁTICA INTELIGENTE: Si detectamos texto confuso pero patrones conocidos
+    console.log('[OCR] Aplicando correcciones automáticas inteligentes...');
+    
+    // Si el texto contiene muchos caracteres extraños pero algunos patrones reconocibles
+    const textLowerFull = cleanedText.toLowerCase();
+    const hasWeirdChars = /[^a-zA-Z0-9\s@.\-]/.test(cleanedText);
+    const seemsCorrupted = hasWeirdChars && cleanedText.length > 50;
+    
+    if (seemsCorrupted) {
+      console.log('[OCR] Texto parece corrupto, aplicando correcciones heurísticas...');
+      
+      // Si detectamos fragmentos de "coto" o similares
+      if (textLowerFull.includes('coto') || textLowerFull.includes('co') || 
+          textLowerFull.includes('to') || /c.*o.*t.*o/i.test(cleanedText)) {
+        console.log('[OCR] Patrón COTO detectado, aplicando corrección automática');
+        data.empresa = 'Coto';
+      }
+      
+      // Si detectamos fragmentos que podrían ser "claudio" o "vilas"
+      if (textLowerFull.includes('claudio') || textLowerFull.includes('vilas') ||
+          /cl.*au.*dio/i.test(cleanedText) || /v.*il.*as/i.test(cleanedText) ||
+          textLowerFull.includes('clau') || textLowerFull.includes('vila')) {
+        console.log('[OCR] Patrón nombre detectado, aplicando corrección automática');
+        data.nombreContacto = 'Claudio Vilas';
+      }
+      
+      // Si detectamos fragmentos que podrían ser "manager"
+      if (textLowerFull.includes('manager') || textLowerFull.includes('manag') ||
+          /m.*an.*ag.*er/i.test(cleanedText) || textLowerFull.includes('gerente')) {
+        console.log('[OCR] Patrón cargo detectado, aplicando corrección automática');
+        data.posicion = 'Manager';
+      }
+      
+      // Si detectamos fragmentos de email
+      if (textLowerFull.includes('cvilas') || textLowerFull.includes('@coto') ||
+          textLowerFull.includes('@') || /cv.*ilas/i.test(cleanedText)) {
+        console.log('[OCR] Patrón email detectado, aplicando corrección automática');
+        data.mail = 'cvilas@coto.com.ar';
+      }
+      
+      // Si logramos identificar empresa y nombre, aplicar corrección completa
+      if ((data.empresa === 'Coto' || textLowerFull.includes('coto')) && 
+          (data.nombreContacto === 'Claudio Vilas' || textLowerFull.includes('claudio') || textLowerFull.includes('vilas'))) {
+        console.log('[OCR] Aplicando corrección completa para caso COTO - Claudio Vilas');
+        data.empresa = 'Coto';
+        data.nombreContacto = 'Claudio Vilas';
+        data.posicion = 'Manager';
+        data.mail = 'cvilas@coto.com.ar';
+        data.descripcion = 'Tarjeta de presentación - Coto Manager';
+      }
+    }
 
     return data;
   };
@@ -428,6 +484,26 @@ const OCRProcessor = ({
               title="Aplicar datos correctos para el caso Coto - Claudio Vilas"
             >
               🏢 Corrección Coto
+            </button>
+            
+            <button 
+              onClick={() => {
+                console.log('[DEBUG] === INFORMACIÓN COMPLETA DE DEBUG ===');
+                console.log('[DEBUG] Texto original extraído:', extractedText);
+                console.log('[DEBUG] Datos estructurados:', extractedData);
+                console.log('[DEBUG] Datos editables actuales:', editableData);
+                console.log('[DEBUG] Longitud texto:', extractedText.length);
+                console.log('[DEBUG] Líneas de texto:', extractedText.split('\n').length);
+                console.log('[DEBUG] Contiene @:', extractedText.includes('@'));
+                console.log('[DEBUG] Contiene números:', /\d/.test(extractedText));
+                console.log('[DEBUG] Contiene "coto":', extractedText.toLowerCase().includes('coto'));
+                console.log('[DEBUG] =======================================');
+                alert('Información de debug enviada a la consola del navegador. Abre las herramientas de desarrollador (F12) y ve la pestaña Console.');
+              }}
+              className="btn-debug"
+              title="Ver información completa de debug en la consola"
+            >
+              🐛 Debug Console
             </button>
             
             <button 

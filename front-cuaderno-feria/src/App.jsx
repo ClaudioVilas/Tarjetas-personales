@@ -35,7 +35,7 @@ function App() {
   // Estado para la IP del servidor
   const [serverIP, setServerIP] = useState('');
   
-  // Estados para OCR
+    // Estados para OCR
   const [isOCRProcessing, setIsOCRProcessing] = useState(false);
 
   // Cambia esta URL si tu backend está en otra IP/puerto
