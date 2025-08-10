@@ -51,6 +51,15 @@ h1 {
   animation: fadeIn 0.7s;
 }
 
+/* Estilos para el contenedor de OCR */
+.ocr-section {
+  margin: 20px 0;
+  padding: 15px;
+  border: 2px dashed #007bff;
+  border-radius: 8px;
+  background-color: rgba(248, 249, 250, 0.9);
+}
+
 .container:hover {
   transform: translateY(-4px) scale(1.01);
   box-shadow: 0 16px 48px rgba(60,60,120,0.22);

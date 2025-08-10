@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import OCRProcessor from './components/OCRProcessor';
 
 // Estilo global para centrar el div principal
 const style = document.createElement('style');
@@ -33,6 +34,9 @@ function App() {
 
   // Estado para la IP del servidor
   const [serverIP, setServerIP] = useState('');
+  
+  // Estados para OCR
+  const [isOCRProcessing, setIsOCRProcessing] = useState(false);
 
   // Cambia esta URL si tu backend está en otra IP/puerto
   const BACKEND_URL = 'http://172.40.210.24:5000'; // Cambia si tu backend está en otra IP
@@ -68,6 +72,45 @@ function App() {
     const ip = url.hostname;
     setServerIP(ip);
   }, [BACKEND_URL]);
+
+  // Función para manejar datos extraídos por OCR
+  const handleOCRDataExtracted = (extractedData) => {
+    console.log('[OCR] Aplicando datos extraídos:', extractedData);
+    
+    // Aplicar solo los campos que tienen datos válidos
+    if (extractedData.empresa && extractedData.empresa.trim()) {
+      setEmpresa(extractedData.empresa.trim());
+    }
+    
+    if (extractedData.nombreContacto && extractedData.nombreContacto.trim()) {
+      setNombreContacto(extractedData.nombreContacto.trim());
+    }
+    
+    if (extractedData.posicion && extractedData.posicion.trim()) {
+      setPosicion(extractedData.posicion.trim());
+    }
+    
+    if (extractedData.mail && extractedData.mail.trim()) {
+      // Validar formato de email básico
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailRegex.test(extractedData.mail.trim())) {
+        setMail(extractedData.mail.trim());
+      }
+    }
+    
+    if (extractedData.descripcion && extractedData.descripcion.trim()) {
+      setDescripcion(extractedData.descripcion.trim());
+    }
+    
+    // Limpiar errores previos
+    setError('');
+    setPdfUrl(null);
+  };
+
+  // Función para manejar errores del OCR
+  const handleOCRError = (errorMessage) => {
+    setError(errorMessage);
+  };
 
 
 
@@ -335,6 +378,17 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
           </label>
         </div>
         
+        {/* Componente de OCR para extraer datos automáticamente */}
+        {latestPhoto && (
+          <OCRProcessor
+            imageUrl={latestPhoto}
+            onDataExtracted={handleOCRDataExtracted}
+            onError={handleOCRError}
+            isProcessing={isOCRProcessing}
+            setIsProcessing={setIsOCRProcessing}
+          />
+        )}
+        
         {/* Nuevos componentes para fotos adicionales */}
         <div className="additional-photos">
           {/* Foto 1 */}
@@ -408,8 +462,8 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
           </div>
         )}
         <div className="button-section">
-          <button type="submit" disabled={loading || emailSending}>
-            {loading ? 'Generando PDF...' : emailSending ? 'Enviando por email...' : 'Generar PDF'}
+          <button type="submit" disabled={loading || emailSending || isOCRProcessing}>
+            {isOCRProcessing ? 'Procesando imagen...' : loading ? 'Generando PDF...' : emailSending ? 'Enviando por email...' : 'Generar PDF'}
           </button>
           {/* Mensaje eliminado, no mostrar información extra */}
         </div>
