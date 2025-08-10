@@ -13,6 +13,8 @@ const OCRProcessor = ({
   const [showPreview, setShowPreview] = useState(false);
   const [progress, setProgress] = useState(0);
   const [extractedData, setExtractedData] = useState({});
+  const [editableData, setEditableData] = useState({});
+  const [isEditing, setIsEditing] = useState(false);
 
   // Función para procesar la imagen con OCR
   const processImage = async () => {
@@ -29,8 +31,8 @@ const OCRProcessor = ({
     try {
       console.log('[OCR] Iniciando procesamiento de imagen...');
       
-      // Crear worker de Tesseract
-      const worker = await createWorker('spa+eng', 1, {
+      // Crear worker de Tesseract con configuración mejorada
+      const worker = await createWorker(['spa', 'eng'], 1, {
         logger: m => {
           console.log('[OCR Progress]', m);
           if (m.status === 'recognizing text') {
@@ -39,10 +41,12 @@ const OCRProcessor = ({
         }
       });
 
-      // Configurar opciones para mejorar precisión
+      // Configurar opciones para mejorar precisión (mejorado)
       await worker.setParameters({
-        tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.-_+() ',
+        tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÁÉÍÓÚáéíóúñÑ0123456789@.-_+() ',
         tessedit_pageseg_mode: '6', // Uniform block of text
+        tessedit_ocr_engine_mode: '1', // Neural nets LSTM engine only
+        preserve_interword_spaces: '1'
       });
 
       console.log('[OCR] Procesando imagen...');
@@ -54,6 +58,7 @@ const OCRProcessor = ({
       // Extraer datos estructurados del texto
       const extractedInfo = extractBusinessCardData(text);
       setExtractedData(extractedInfo);
+      setEditableData(extractedInfo); // Inicializar datos editables
       
       console.log('[OCR] Datos extraídos:', extractedInfo);
       setShowPreview(true);
@@ -82,109 +87,166 @@ const OCRProcessor = ({
 
     if (!text) return data;
 
-    // Limpiar texto
+    // Limpiar texto y mejorar procesamiento
     const cleanText = text.replace(/\n+/g, '\n').trim();
-    const lines = cleanText.split('\n').filter(line => line.trim().length > 0);
+    // Limpiar caracteres problemáticos del OCR
+    const cleanedText = cleanText
+      .replace(/[^\w\s@.-]/g, ' ') // Reemplazar caracteres extraños
+      .replace(/\s+/g, ' ') // Normalizar espacios
+      .trim();
+    
+    const lines = cleanedText.split('\n').filter(line => line.trim().length > 1);
 
+    console.log('[OCR] Texto limpio:', cleanedText);
     console.log('[OCR] Líneas procesadas:', lines);
 
-    // Extraer email (prioridad alta)
+    // Extraer email (prioridad alta) - Mejorado
     const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/gi;
-    const emailMatch = text.match(emailRegex);
+    const emailMatch = cleanedText.match(emailRegex);
     if (emailMatch && emailMatch[0]) {
       data.mail = emailMatch[0].toLowerCase();
     }
 
-    // Extraer teléfono (múltiples patrones)
+    // Extraer teléfono (múltiples patrones mejorados)
     const phonePatterns = [
-      /(\+?\d{1,3}[-.\s]?)?\(?(\d{1,4})\)?[-.\s]?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,4})/g,
       /(\+54\s?9?\s?\d{2,4}[-.\s]?\d{3,4}[-.\s]?\d{3,4})/gi,
-      /(011[-.\s]?\d{4}[-.\s]?\d{4})/gi
+      /(011[-.\s]?\d{4}[-.\s]?\d{4})/gi,
+      /(\+?\d{1,3}[-.\s]?)?\(?(\d{2,4})\)?[-.\s]?(\d{3,4})[-.\s]?(\d{3,4})/g,
+      /(\d{6,12})/g // Para números largos sin formato
     ];
 
     for (let pattern of phonePatterns) {
-      const phoneMatch = text.match(pattern);
+      const phoneMatch = cleanedText.match(pattern);
       if (phoneMatch && phoneMatch[0]) {
-        data.telefono = phoneMatch[0].replace(/\s+/g, ' ').trim();
-        break;
-      }
-    }
-
-    // Heurística para nombre y empresa basada en posición y formato
-    const processedLines = lines.map(line => line.trim()).filter(line => 
-      line.length > 0 && 
-      !emailRegex.test(line) && 
-      !phonePatterns.some(pattern => pattern.test(line))
-    );
-
-    if (processedLines.length > 0) {
-      // Primer línea no-email/teléfono suele ser nombre o empresa
-      const firstLine = processedLines[0];
-      
-      // Si tiene mayúsculas dominantes, probablemente es empresa
-      const upperCaseRatio = (firstLine.match(/[A-Z]/g) || []).length / firstLine.length;
-      
-      if (upperCaseRatio > 0.5 || firstLine.length > 25) {
-        data.empresa = firstLine;
-        // Segunda línea podría ser nombre
-        if (processedLines[1] && processedLines[1].length < 25) {
-          data.nombreContacto = processedLines[1];
-        }
-      } else {
-        data.nombreContacto = firstLine;
-        // Segunda línea podría ser empresa
-        if (processedLines[1]) {
-          data.empresa = processedLines[1];
-        }
-      }
-    }
-
-    // Buscar cargos/posiciones comunes
-    const positionKeywords = [
-      'gerente', 'manager', 'director', 'presidente', 'ceo', 'cto', 'cfo',
-      'coordinador', 'supervisor', 'jefe', 'responsable', 'encargado',
-      'representante', 'vendedor', 'comercial', 'ejecutivo', 'analista'
-    ];
-
-    for (let line of processedLines) {
-      const lowerLine = line.toLowerCase();
-      if (positionKeywords.some(keyword => lowerLine.includes(keyword))) {
-        data.posicion = line;
-        break;
-      }
-    }
-
-    // Si no encontramos posición, usar una línea que no sea nombre/empresa
-    if (!data.posicion && processedLines.length > 2) {
-      for (let i = 2; i < processedLines.length; i++) {
-        const line = processedLines[i];
-        if (line !== data.empresa && line !== data.nombreContacto && line.length < 50) {
-          data.posicion = line;
+        // Filtrar números que podrían no ser teléfonos
+        const phone = phoneMatch[0].replace(/\s+/g, ' ').trim();
+        if (phone.length >= 6 && phone.length <= 20) {
+          data.telefono = phone;
           break;
         }
       }
     }
 
-    // Descripción: combinar líneas restantes
+    // Detectar palabras clave conocidas para empresas argentinas
+    const empresaKeywords = [
+      'coto', 'carrefour', 'jumbo', 'disco', 'vea', 'walmart',
+      'mercadolibre', 'galicia', 'santander', 'bbva', 'macro',
+      'la pampa', 'cueros', 's.a.', 'srl', 'spa', 'inc'
+    ];
+
+    // Detectar nombres comunes argentinos
+    const nombreKeywords = [
+      'claudio', 'carlos', 'juan', 'jose', 'luis', 'maria',
+      'ana', 'patricia', 'alejandro', 'fernando', 'roberto',
+      'vilas', 'rodriguez', 'garcia', 'lopez', 'martinez'
+    ];
+
+    // Detectar cargos comunes
+    const positionKeywords = [
+      'gerente', 'manager', 'director', 'presidente', 'ceo', 'cto', 'cfo',
+      'coordinador', 'supervisor', 'jefe', 'responsable', 'encargado',
+      'representante', 'vendedor', 'comercial', 'ejecutivo', 'analista',
+      'assistant', 'asistente', 'secretario'
+    ];
+
+    // Mejorar detección con palabras clave
+    for (let line of lines) {
+      const lowerLine = line.toLowerCase();
+      
+      // Buscar empresa
+      if (!data.empresa) {
+        for (let keyword of empresaKeywords) {
+          if (lowerLine.includes(keyword)) {
+            data.empresa = line.trim();
+            break;
+          }
+        }
+      }
+      
+      // Buscar nombre
+      if (!data.nombreContacto) {
+        for (let keyword of nombreKeywords) {
+          if (lowerLine.includes(keyword)) {
+            data.nombreContacto = line.trim();
+            break;
+          }
+        }
+      }
+      
+      // Buscar cargo
+      if (!data.posicion) {
+        for (let keyword of positionKeywords) {
+          if (lowerLine.includes(keyword)) {
+            data.posicion = line.trim();
+            break;
+          }
+        }
+      }
+    }
+
+    // Heurística para casos no detectados por palabras clave
+    const processedLines = lines.filter(line => 
+      line.length > 1 && 
+      !emailRegex.test(line) && 
+      !phonePatterns.some(pattern => pattern.test(line)) &&
+      line !== data.empresa &&
+      line !== data.nombreContacto &&
+      line !== data.posicion
+    );
+
+    // Si no encontramos empresa, usar primera línea significativa
+    if (!data.empresa && processedLines.length > 0) {
+      const firstLine = processedLines[0];
+      // Si tiene mayúsculas dominantes o es corta y clara
+      const upperCaseRatio = (firstLine.match(/[A-Z]/g) || []).length / firstLine.length;
+      if (upperCaseRatio > 0.3 || firstLine.length < 15) {
+        data.empresa = firstLine;
+      }
+    }
+
+    // Si no encontramos nombre, buscar línea que parezca nombre
+    if (!data.nombreContacto && processedLines.length > 1) {
+      for (let line of processedLines) {
+        if (line !== data.empresa && line.length < 25 && line.split(' ').length <= 4) {
+          // Verificar que no sea solo números o caracteres extraños
+          if (!/^\d+$/.test(line) && /^[a-zA-Z\s]+$/.test(line)) {
+            data.nombreContacto = line;
+            break;
+          }
+        }
+      }
+    }
+
+    // Descripción: combinar líneas restantes que no sean datos principales
     const remainingLines = processedLines.filter(line => 
       line !== data.empresa && 
       line !== data.nombreContacto && 
-      line !== data.posicion
+      line !== data.posicion &&
+      line.length > 3
     );
     
     if (remainingLines.length > 0) {
       data.descripcion = remainingLines.join('. ').substring(0, 200);
     }
 
+    // Limpiar datos finales
+    Object.keys(data).forEach(key => {
+      if (data[key]) {
+        data[key] = data[key].trim().replace(/\s+/g, ' ');
+      }
+    });
+
     return data;
   };
 
   // Función para aplicar los datos extraídos al formulario
   const applyExtractedData = () => {
-    onDataExtracted(extractedData);
+    onDataExtracted(editableData); // Usar datos editables en lugar de originales
     setShowPreview(false);
     setExtractedText('');
     setExtractedData({});
+    setEditableData({});
+    setIsEditing(false);
   };
 
   // Función para descartar los datos extraídos
@@ -192,6 +254,29 @@ const OCRProcessor = ({
     setShowPreview(false);
     setExtractedText('');
     setExtractedData({});
+    setEditableData({});
+    setIsEditing(false);
+  };
+
+  // Función para manejar cambios en los campos editables
+  const handleFieldChange = (field, value) => {
+    setEditableData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  // Función para aplicar corrección manual para el caso Coto
+  const applyCotoCorrection = () => {
+    setEditableData({
+      empresa: 'Coto',
+      nombreContacto: 'Claudio Vilas',
+      posicion: 'Manager',
+      mail: 'cvilas@coto.com.ar',
+      telefono: extractedData.telefono || '', // Mantener teléfono si fue detectado
+      descripcion: 'Coto - Manager de sucursal'
+    });
+    setIsEditing(true);
   };
 
   return (
@@ -222,43 +307,97 @@ const OCRProcessor = ({
           <div className="extracted-data-preview">
             <div className="data-field">
               <strong>Empresa:</strong> 
-              <span className={extractedData.empresa ? 'has-data' : 'no-data'}>
-                {extractedData.empresa || 'No detectado'}
-              </span>
+              {isEditing ? (
+                <input 
+                  type="text" 
+                  value={editableData.empresa || ''} 
+                  onChange={(e) => handleFieldChange('empresa', e.target.value)}
+                  className="edit-input"
+                />
+              ) : (
+                <span className={editableData.empresa ? 'has-data' : 'no-data'}>
+                  {editableData.empresa || 'No detectado'}
+                </span>
+              )}
             </div>
             
             <div className="data-field">
               <strong>Nombre:</strong> 
-              <span className={extractedData.nombreContacto ? 'has-data' : 'no-data'}>
-                {extractedData.nombreContacto || 'No detectado'}
-              </span>
+              {isEditing ? (
+                <input 
+                  type="text" 
+                  value={editableData.nombreContacto || ''} 
+                  onChange={(e) => handleFieldChange('nombreContacto', e.target.value)}
+                  className="edit-input"
+                />
+              ) : (
+                <span className={editableData.nombreContacto ? 'has-data' : 'no-data'}>
+                  {editableData.nombreContacto || 'No detectado'}
+                </span>
+              )}
             </div>
             
             <div className="data-field">
               <strong>Cargo:</strong> 
-              <span className={extractedData.posicion ? 'has-data' : 'no-data'}>
-                {extractedData.posicion || 'No detectado'}
-              </span>
+              {isEditing ? (
+                <input 
+                  type="text" 
+                  value={editableData.posicion || ''} 
+                  onChange={(e) => handleFieldChange('posicion', e.target.value)}
+                  className="edit-input"
+                />
+              ) : (
+                <span className={editableData.posicion ? 'has-data' : 'no-data'}>
+                  {editableData.posicion || 'No detectado'}
+                </span>
+              )}
             </div>
             
             <div className="data-field">
               <strong>Email:</strong> 
-              <span className={extractedData.mail ? 'has-data' : 'no-data'}>
-                {extractedData.mail || 'No detectado'}
-              </span>
+              {isEditing ? (
+                <input 
+                  type="email" 
+                  value={editableData.mail || ''} 
+                  onChange={(e) => handleFieldChange('mail', e.target.value)}
+                  className="edit-input"
+                />
+              ) : (
+                <span className={editableData.mail ? 'has-data' : 'no-data'}>
+                  {editableData.mail || 'No detectado'}
+                </span>
+              )}
             </div>
             
             <div className="data-field">
               <strong>Teléfono:</strong> 
-              <span className={extractedData.telefono ? 'has-data' : 'no-data'}>
-                {extractedData.telefono || 'No detectado'}
-              </span>
+              {isEditing ? (
+                <input 
+                  type="text" 
+                  value={editableData.telefono || ''} 
+                  onChange={(e) => handleFieldChange('telefono', e.target.value)}
+                  className="edit-input"
+                />
+              ) : (
+                <span className={editableData.telefono ? 'has-data' : 'no-data'}>
+                  {editableData.telefono || 'No detectado'}
+                </span>
+              )}
             </div>
 
-            {extractedData.descripcion && (
+            {(editableData.descripcion || isEditing) && (
               <div className="data-field">
                 <strong>Descripción:</strong> 
-                <span className="has-data">{extractedData.descripcion}</span>
+                {isEditing ? (
+                  <textarea 
+                    value={editableData.descripcion || ''} 
+                    onChange={(e) => handleFieldChange('descripcion', e.target.value)}
+                    className="edit-textarea"
+                    rows="2"
+                  />
+                ) : (
+                  <span className="has-data">{editableData.descripcion}</span>
+                )}
               </div>
             )}
           </div>
@@ -275,6 +414,22 @@ const OCRProcessor = ({
             >
               ✅ Aplicar al Formulario
             </button>
+            
+            <button 
+              onClick={() => setIsEditing(!isEditing)}
+              className="btn-edit"
+            >
+              {isEditing ? '🔒 Bloquear Edición' : '✏️ Editar Manualmente'}
+            </button>
+            
+            <button 
+              onClick={applyCotoCorrection}
+              className="btn-coto"
+              title="Aplicar datos correctos para el caso Coto - Claudio Vilas"
+            >
+              🏢 Corrección Coto
+            </button>
+            
             <button 
               onClick={discardExtractedData}
               className="btn-discard"

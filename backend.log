@@ -1,64 +1,299 @@
  * Serving Flask app 'main'
  * Debug mode: off
 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://172.40.210.24:5000
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.22:5000
 [33mPress CTRL+C to quit[0m
-172.40.210.24 - - [07/Aug/2025 14:56:11] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:11] "GET /fotos/sin_nombre.jpg?t=1754589371336 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:13] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:13] "GET /fotos/sin_nombre.jpg?t=1754589373437 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:15] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:15] "GET /fotos/sin_nombre.jpg?t=1754589375445 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:17] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:17] "GET /fotos/sin_nombre.jpg?t=1754589377519 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:19] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:19] "GET /fotos/sin_nombre.jpg?t=1754589379622 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:27] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:27] "GET /fotos/sin_nombre.jpg?t=1754589387712 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:29] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:29] "GET /fotos/sin_nombre.jpg?t=1754589389713 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:31] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:31] "GET /fotos/sin_nombre.jpg?t=1754589391713 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:34] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:34] "GET /fotos/sin_nombre.jpg?t=1754589394037 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:36] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:36] "GET /fotos/sin_nombre.jpg?t=1754589396652 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:38] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:38] "GET /fotos/sin_nombre.jpg?t=1754589398857 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:43] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:43] "GET /fotos/sin_nombre.jpg?t=1754589403149 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:48] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:48] "GET /fotos/sin_nombre.jpg?t=1754589408741 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:52] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:52] "GET /fotos/sin_nombre.jpg?t=1754589412550 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:54] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:54] "GET /fotos/sin_nombre.jpg?t=1754589414552 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:56] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:56] "GET /fotos/sin_nombre.jpg?t=1754589416552 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:58] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:56:58] "GET /fotos/sin_nombre.jpg?t=1754589418551 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:00] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:00] "GET /fotos/sin_nombre.jpg?t=1754589420557 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:02] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:02] "GET /fotos/sin_nombre.jpg?t=1754589422556 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:04] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:04] "GET /fotos/sin_nombre.jpg?t=1754589424558 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:06] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:06] "GET /fotos/sin_nombre.jpg?t=1754589426557 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:08] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:08] "GET /fotos/sin_nombre.jpg?t=1754589428556 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:10] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:10] "GET /fotos/sin_nombre.jpg?t=1754589430558 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:10] "GET /fotos/sin_nombre.jpg?t=1754589430785 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:12] "POST /generate_pdf HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:12] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:12] "GET /fotos/sin_nombre.jpg?t=1754589432560 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:14] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:14] "GET /fotos/sin_nombre.jpg?t=1754589434565 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:16] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:16] "GET /fotos/sin_nombre.jpg?t=1754589436563 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:18] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:18] "GET /fotos/sin_nombre.jpg?t=1754589438565 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:27] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:27] "GET /fotos/sin_nombre.jpg?t=1754867427632 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:29] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:29] "GET /fotos/sin_nombre.jpg?t=1754867429728 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:31] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:31] "GET /fotos/sin_nombre.jpg?t=1754867431826 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:33] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:33] "GET /fotos/sin_nombre.jpg?t=1754867433830 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:35] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:35] "GET /fotos/sin_nombre.jpg?t=1754867435930 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:38] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:38] "GET /fotos/sin_nombre.jpg?t=1754867438106 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:40] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:40] "GET /fotos/sin_nombre.jpg?t=1754867440267 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:44] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:44] "GET /fotos/sin_nombre.jpg?t=1754867444049 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:49] "[33mGET /health HTTP/1.1[0m" 404 -
+192.168.1.22 - - [10/Aug/2025 20:10:51] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:51] "GET /fotos/sin_nombre.jpg?t=1754867451584 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:10:58] "[33mGET / HTTP/1.1[0m" 404 -
+192.168.1.22 - - [10/Aug/2025 20:11:04] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:04] "GET /fotos/sin_nombre.jpg?t=1754867464710 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:16] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:16] "GET /fotos/sin_nombre.jpg?t=1754867476469 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:18] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:18] "GET /fotos/sin_nombre.jpg?t=1754867478470 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:20] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:20] "GET /fotos/sin_nombre.jpg?t=1754867480471 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:22] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:22] "GET /fotos/sin_nombre.jpg?t=1754867482475 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:24] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:24] "GET /fotos/sin_nombre.jpg?t=1754867484474 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:26] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:26] "GET /fotos/sin_nombre.jpg?t=1754867486474 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:28] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:28] "GET /fotos/sin_nombre.jpg?t=1754867488476 HTTP/1.1" 200 -
+192.168.1.15 - - [10/Aug/2025 20:11:29] "POST /upload HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:30] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:30] "GET /fotos/sin_nombre.jpg?t=1754867490478 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:32] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:32] "GET /fotos/sin_nombre.jpg?t=1754867492477 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:34] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:34] "GET /fotos/sin_nombre.jpg?t=1754867494480 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:35] "GET /fotos/sin_nombre.jpg?t=1754867495289 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:36] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:36] "GET /fotos/sin_nombre.jpg?t=1754867496609 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:38] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:38] "GET /fotos/sin_nombre.jpg?t=1754867498616 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:39] "[36mGET /fotos/sin_nombre.jpg?t=1754867496609 HTTP/1.1[0m" 304 -
+192.168.1.22 - - [10/Aug/2025 20:11:40] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:40] "GET /fotos/sin_nombre.jpg?t=1754867500611 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:42] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:42] "GET /fotos/sin_nombre.jpg?t=1754867502614 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:44] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:44] "GET /fotos/sin_nombre.jpg?t=1754867504617 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:46] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:46] "GET /fotos/sin_nombre.jpg?t=1754867506615 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:48] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:48] "GET /fotos/sin_nombre.jpg?t=1754867508616 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:50] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:50] "GET /fotos/sin_nombre.jpg?t=1754867510617 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:52] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:52] "GET /fotos/sin_nombre.jpg?t=1754867512620 HTTP/1.1" 200 -
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+Headers: {'Host': '192.168.1.22:5000', 'Accept': '*/*', 'Content-Type': 'image/jpeg', 'Connection': 'keep-alive', 'Accept-Language': 'es-419,es;q=0.9', 'Content-Length': '4275070', 'Accept-Encoding': 'gzip, deflate', 'User-Agent': 'BackgroundShortcutRunner/3607.0.2 CFNetwork/3826.500.131 Darwin/24.5.0'}
+Content-Type: image/jpeg
+request.data length: 4275070
+request.files: ImmutableMultiDict([])
+request.form: ImmutableMultiDict([])
+[DEBUG] empresa: '' empresa_filename: 'sin_nombre'
+[DEBUG] RAW filename: sin_nombre.jpg filepath: /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos/sin_nombre.jpg
+[✔] Imagen guardada: /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos/sin_nombre.jpg
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos192.168.1.22 - - [10/Aug/2025 20:11:54] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:54] "GET /fotos/sin_nombre.jpg?t=1754867514621 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:56] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:56] "GET /fotos/sin_nombre.jpg?t=1754867516619 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:58] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:11:58] "GET /fotos/sin_nombre.jpg?t=1754867518622 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:00] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:00] "GET /fotos/sin_nombre.jpg?t=1754867520623 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:02] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:02] "GET /fotos/sin_nombre.jpg?t=1754867522624 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:04] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:04] "GET /fotos/sin_nombre.jpg?t=1754867524622 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:06] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:06] "GET /fotos/sin_nombre.jpg?t=1754867526623 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:06] "GET /fotos/sin_nombre.jpg?t=1754867526627 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:08] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:08] "GET /fotos/sin_nombre.jpg?t=1754867528624 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:09] "[36mGET /fotos/sin_nombre.jpg?t=1754867528624 HTTP/1.1[0m" 304 -
+192.168.1.22 - - [10/Aug/2025 20:12:10] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:10] "GET /fotos/sin_nombre.jpg?t=1754867530623 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:12] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:12] "GET /fotos/sin_nombre.jpg?t=1754867532628 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:14] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:14] "GET /fotos/sin_nombre.jpg?t=1754867534628 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:16] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:16] "GET /fotos/sin_nombre.jpg?t=1754867536631 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:18] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:18] "GET /fotos/sin_nombre.jpg?t=1754867538630 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:20] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:20] "GET /fotos/sin_nombre.jpg?t=1754867540632 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:22] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:22] "GET /fotos/sin_nombre.jpg?t=1754867542629 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:24] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:24] "GET /fotos/sin_nombre.jpg?t=1754867544632 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:26] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:26] "GET /fotos/sin_nombre.jpg?t=1754867546633 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:28] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:28] "GET /fotos/sin_nombre.jpg?t=1754867548635 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:30] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:30] "GET /fotos/sin_nombre.jpg?t=1754867550733 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:33] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:33] "GET /fotos/sin_nombre.jpg?t=1754867553038 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:36] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:36] "GET /fotos/sin_nombre.jpg?t=1754867556854 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:41] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:41] "GET /fotos/sin_nombre.jpg?t=1754867561676 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:50] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:12:50] "GET /fotos/sin_nombre.jpg?t=1754867570958 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:04] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:04] "GET /fotos/sin_nombre.jpg?t=1754867584779 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:11] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:11] "GET /fotos/sin_nombre.jpg?t=1754867591453 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:31] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:31] "GET /fotos/sin_nombre.jpg?t=1754867611459 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:36] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:36] "GET /fotos/sin_nombre.jpg?t=1754867616353 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:38] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:38] "GET /fotos/sin_nombre.jpg?t=1754867618360 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:40] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:40] "GET /fotos/sin_nombre.jpg?t=1754867620356 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:42] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:42] "GET /fotos/sin_nombre.jpg?t=1754867622357 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:44] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:44] "GET /fotos/sin_nombre.jpg?t=1754867624362 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:46] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:46] "GET /fotos/sin_nombre.jpg?t=1754867626359 HTTP/1.1" 200 -
+
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+Intentando servir: 'sin_nombre.jpg'
 [DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
 [DEBUG] Archivos encontrados: ['sin_nombre.jpg']
 [DEBUG] Archivo más reciente: sin_nombre.jpg
@@ -151,83 +386,32 @@ Intentando servir: 'sin_nombre.jpg'
 [DEBUG] Archivos encontrados: ['sin_nombre.jpg']
 [DEBUG] Archivo más reciente: sin_nombre.jpg
 Intentando servir: 'sin_nombre.jpg'
-Intentando servir: 'sin_nombre.jpg'
-[DEBUG] request.form: {'filename': 'sin_nombre.jpg', 'empresa': 'claudio', 'nombreContacto': 'claudio', 'posicion': 'manager', 'mail': 'claudiogvilas@gmail.com', 'descripcion': 'ultima', 'hasPhoto1': 'true', 'hasPhoto2': 'false', 'photo1_filename': 'sin_nombre.jpg', 'photo2_filename': ''}
-[DEBUG] request.files: {}
-[DEBUG] filename: 'sin_nombre.jpg'
-[DEBUG] empresa: 'claudio'
-[DEBUG] nombreContacto: 'claudio'
-[DEBUG] posicion: 'manager'
-[DEBUG] mail: 'claudiogvilas@gmail.com'
-[DEBUG] descripcion: 'ultima'
-[DEBUG] hasPhoto1: True
-[DEBUG] hasPhoto2: False
-[DEBUG] photo1_filename: 'sin_nombre.jpg'
-[DEBUG] photo2_filename: ''
-[DEBUG] Imagen comprimida: /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos/sin_nombre.jpg -> /var/folders/_l/tg9qht5d6jndbv1gpcm42vvc0000gp/T/tmp8zd7s8vr.jpg (calidad 70%)
-[DEBUG] pdf_path_abs: /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/Pdf Feria/claudio.pdf
-[DEBUG] pdf_folder_abs: /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/Pdf Feria
-[DEBUG] downloads_abs: /Users/claudiovilas/Downloads
-[✔] PDF generado: /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/Pdf Feria/claudio.pdf
 [DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
 [DEBUG] Archivos encontrados: ['sin_nombre.jpg']
 [DEBUG] Archivo más reciente: sin_nombre.jpg
 Intentando servir: 'sin_nombre.jpg'
 [DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
-[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
-[DEBUG] Archivo más reciente: sin_nombre.jpg
-Intentando servir: 'sin_nombre.jpg'
-[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
-[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
-[DEBUG] Archivo más reciente: sin_nombre.jpg
-Intentando servir: 'sin_nombre.jpg'
-[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
-[DEBUG] Archivos encontrados: ['sin_nombre.jpg']
-[DEBUG] Archivo más reciente: sin_nombre.jpg
-Intentando servir: 'sin_nombre.jpg'
-[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos172.40.210.24 - - [07/Aug/2025 14:57:20] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:20] "GET /fotos/sin_nombre.jpg?t=1754589440633 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:23] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:23] "GET /fotos/sin_nombre.jpg?t=1754589443710 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:25] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:25] "GET /fotos/sin_nombre.jpg?t=1754589445707 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:27] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:27] "GET /fotos/sin_nombre.jpg?t=1754589447711 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:29] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:29] "GET /fotos/sin_nombre.jpg?t=1754589449974 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:32] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:32] "GET /fotos/sin_nombre.jpg?t=1754589452076 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:37] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:37] "GET /fotos/sin_nombre.jpg?t=1754589457654 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:47] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:47] "GET /fotos/sin_nombre.jpg?t=1754589467829 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:56] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:57:56] "GET /fotos/sin_nombre.jpg?t=1754589476320 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:58:13] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:58:13] "GET /fotos/sin_nombre.jpg?t=1754589493694 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:58:24] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:58:24] "GET /fotos/sin_nombre.jpg?t=1754589504091 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:58:59] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:58:59] "GET /fotos/sin_nombre.jpg?t=1754589539079 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:59:24] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 14:59:24] "GET /fotos/sin_nombre.jpg?t=1754589564104 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:00:04] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:00:04] "GET /fotos/sin_nombre.jpg?t=1754589604190 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:00:44] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:00:44] "GET /fotos/sin_nombre.jpg?t=1754589644191 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:01:24] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:01:24] "GET /fotos/sin_nombre.jpg?t=1754589684178 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:02:04] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:02:04] "GET /fotos/sin_nombre.jpg?t=1754589724112 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:02:44] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:02:44] "GET /fotos/sin_nombre.jpg?t=1754589764207 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:03:24] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:03:24] "GET /fotos/sin_nombre.jpg?t=1754589804199 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:04:04] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:04:04] "GET /fotos/sin_nombre.jpg?t=1754589844196 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:04:44] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:04:44] "GET /fotos/sin_nombre.jpg?t=1754589884193 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:05:24] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:05:24] "GET /fotos/sin_nombre.jpg?t=1754589924200 HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:11:20] "GET /ultima_foto HTTP/1.1" 200 -
-172.40.210.24 - - [07/Aug/2025 15:13:29] "GET /ultima_foto HTTP/1.1" 200 -
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg']192.168.1.22 - - [10/Aug/2025 20:13:48] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:48] "GET /fotos/sin_nombre.jpg?t=1754867628505 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:52] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:52] "GET /fotos/sin_nombre.jpg?t=1754867632122 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:57] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:13:57] "GET /fotos/sin_nombre.jpg?t=1754867637747 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:14:02] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:14:02] "GET /fotos/sin_nombre.jpg?t=1754867642028 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:14:10] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:14:10] "GET /fotos/sin_nombre.jpg?t=1754867650720 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:14:26] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:14:26] "GET /fotos/sin_nombre.jpg?t=1754867666939 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:14:31] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:14:31] "GET /fotos/sin_nombre.jpg?t=1754867671456 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:14:51] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:14:51] "GET /fotos/sin_nombre.jpg?t=1754867691457 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:15:11] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:15:11] "GET /fotos/sin_nombre.jpg?t=1754867711455 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:15:31] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:15:31] "GET /fotos/sin_nombre.jpg?t=1754867731453 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:15:51] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:15:51] "GET /fotos/sin_nombre.jpg?t=1754867751453 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:16:11] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:16:11] "GET /fotos/sin_nombre.jpg?t=1754867771451 HTTP/1.1" 200 -
