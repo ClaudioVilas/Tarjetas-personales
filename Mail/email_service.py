@@ -191,7 +191,7 @@ class EmailService:
                     <ul>
                         <li><strong>Sales:</strong> Andrada Daniel</li>
                         <li><strong>Mail:</strong> info@lapampacueros.com</li>
-                        <li><strong>Mobile:</strong> +54 9 11 5415</li>
+                        <li><strong>Mobile:</strong> +54 9 11 5006-1131</li>
                     </ul>
                     
                     <h5><strong>Manager:</strong></h5>
