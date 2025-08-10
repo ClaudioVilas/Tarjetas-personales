@@ -1419,3 +1419,5 @@ Intentando servir: 'sin_nombre.jpg'
 192.168.1.22 - - [10/Aug/2025 20:32:43] "GET /fotos/sin_nombre.jpg?t=1754868763861 HTTP/1.1" 200 -
 192.168.1.22 - - [10/Aug/2025 20:32:47] "GET /ultima_foto HTTP/1.1" 200 -
 192.168.1.22 - - [10/Aug/2025 20:32:47] "GET /fotos/sin_nombre.jpg?t=1754868767350 HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:33:04] "GET /ultima_foto HTTP/1.1" 200 -
+192.168.1.22 - - [10/Aug/2025 20:33:04] "GET /fotos/sin_nombre.jpg?t=1754868784543 HTTP/1.1" 200 -
