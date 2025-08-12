@@ -289,6 +289,11 @@ def serve_foto(filename):
     print(f"Intentando servir: '{filename}'")
     return send_from_directory(FOTOS_FOLDER, filename)
 
+# Endpoint de health check para Docker
+@app.route('/health')
+def health_check():
+    return jsonify({"status": "healthy", "timestamp": datetime.now().isoformat()})
+
 if __name__ == '__main__':
     # Usar variables de entorno para host y puerto
     host = os.environ.get('FLASK_HOST', '0.0.0.0')

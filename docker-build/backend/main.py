@@ -10,16 +10,8 @@ import tempfile
 app = Flask(__name__)
 CORS(app)
 
-# Configuración de carpetas usando variables de entorno para Docker
-PDF_FOLDER = os.environ.get('PDF_FOLDER', '/shared/pdf-output')
-FOTOS_FOLDER = os.environ.get('FOTOS_FOLDER', '/app/fotos')
-
-# Fallback para desarrollo local
-if not os.path.exists(PDF_FOLDER):
-    PDF_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/Pdf Feria'
-
-if not os.path.exists(FOTOS_FOLDER):
-    FOTOS_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos'
+PDF_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/Pdf Feria'
+FOTOS_FOLDER = '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos'
 
 # Asegurar que las carpetas existan
 os.makedirs(PDF_FOLDER, exist_ok=True)
@@ -241,10 +233,8 @@ def upload_file():
     print(f"request.data length: {len(request.data)}")
     print(f"request.files: {request.files}")
     print(f"request.form: {request.form}")
-    print(f"request.args: {request.args}")
 
-    # Intentar obtener empresa desde form (multipart) o args (query parameters del iPhone)
-    empresa = request.form.get('empresa', '').strip() or request.args.get('empresa', '').strip()
+    empresa = request.form.get('empresa', '').strip()
     import re
     if empresa:
         empresa_filename = re.sub(r'[^a-zA-Z0-9_-]', '_', empresa)
@@ -298,6 +288,11 @@ def ultima_foto():
 def serve_foto(filename):
     print(f"Intentando servir: '{filename}'")
     return send_from_directory(FOTOS_FOLDER, filename)
+
+# Endpoint de health check para Docker
+@app.route('/health')
+def health_check():
+    return jsonify({"status": "healthy", "timestamp": datetime.now().isoformat()})
 
 if __name__ == '__main__':
     # Usar variables de entorno para host y puerto

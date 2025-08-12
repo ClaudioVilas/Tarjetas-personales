@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Servicio de configuración de IP dinámica
   ip-config:
@@ -13,37 +11,43 @@ services:
       - tarjetas-network
     restart: unless-stopped
     environment:
-      - EXTERNAL_IP=192.168.1.22
+      - EXTERNAL_IP=172.40.210.24
+    healthcheck:
+      test: ["CMD", "test", "-f", "/shared/config/network-config.json"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   # Backend - Generación de PDFs
   backend:
     build:
       context: .
       dockerfile: services/backend.Dockerfile
-    container_name: tarjetas-backend
     ports:
       - "5000:5000"
     volumes:
-      - shared-config:/shared/config:ro
-      - shared-pdf:/shared/pdf-output
-      - ./data/backend/fotos:/app/fotos
-      - ./data/backend/uploads:/app/uploads
+      - ./shared/pdf-output:/shared/pdf-output
+      - ../cuaderno-feria-cueros/fotos:/app/fotos
     networks:
       - tarjetas-network
     depends_on:
-      - ip-config
+      ip-config:
+        condition: service_healthy
     restart: unless-stopped
-    environment:
-      - FLASK_ENV=production
-      - CONFIG_DIR=/shared/config
-      - PDF_FOLDER=/shared/pdf-output
-      - FOTOS_FOLDER=/app/fotos
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health').read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   # Servicio de Email
   email-service:
     build:
       context: .
       dockerfile: services/email.Dockerfile
+      args:
+        - BUILDKIT_INLINE_CACHE=1
     container_name: tarjetas-email
     ports:
       - "5001:5001"
@@ -55,19 +59,29 @@ services:
     networks:
       - tarjetas-network
     depends_on:
-      - ip-config
-      - backend
+      ip-config:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
     restart: unless-stopped
     environment:
       - CONFIG_DIR=/shared/config
       - PDF_FOLDER=/shared/pdf-output
       - ATTACHMENTS_FOLDER=/app/la-pampa-files
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   # Frontend - Interface de usuario
   frontend:
     build:
       context: .
       dockerfile: services/frontend.Dockerfile
+      args:
+        - BUILDKIT_INLINE_CACHE=1
     container_name: tarjetas-frontend
     ports:
       - "80:80"
@@ -77,21 +91,37 @@ services:
     networks:
       - tarjetas-network
     depends_on:
-      - ip-config
-      - backend
-      - email-service
+      ip-config:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+      email-service:
+        condition: service_healthy
     restart: unless-stopped
     environment:
       - CONFIG_DIR=/shared/config
       - DEV_MODE=true
       - FRONTEND_PORT=5173
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80", "||", "exit", "1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
 networks:
   tarjetas-network:
     driver: bridge
+    name: tarjetas-network
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
 
 volumes:
   shared-config:
     driver: local
+    name: tarjetas-shared-config
   shared-pdf:
     driver: local
+    name: tarjetas-shared-pdf
