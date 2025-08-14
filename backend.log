@@ -29,3 +29,482 @@
 172.40.210.24 - - [14/Aug/2025 13:13:13] "GET /fotos/sin_nombre.jpg?t=1755187993054 HTTP/1.1" 200 -
 172.40.210.24 - - [14/Aug/2025 13:13:15] "GET /ultima_foto HTTP/1.1" 200 -
 172.40.210.24 - - [14/Aug/2025 13:13:15] "GET /fotos/sin_nombre.jpg?t=1755187995058 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:17] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:17] "GET /fotos/sin_nombre.jpg?t=1755187997058 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:19] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:19] "GET /fotos/sin_nombre.jpg?t=1755187999061 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:21] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:21] "GET /fotos/sin_nombre.jpg?t=1755188001055 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:23] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:23] "GET /fotos/sin_nombre.jpg?t=1755188003062 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:25] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:25] "GET /fotos/sin_nombre.jpg?t=1755188005061 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:27] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:27] "GET /fotos/sin_nombre.jpg?t=1755188007063 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:29] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:29] "GET /fotos/sin_nombre.jpg?t=1755188009064 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:31] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:31] "GET /fotos/sin_nombre.jpg?t=1755188011065 HTTP/1.1" 200 -
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg172.40.210.24 - - [14/Aug/2025 13:13:33] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:33] "GET /fotos/sin_nombre.jpg?t=1755188013064 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:35] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:35] "GET /fotos/sin_nombre.jpg?t=1755188015069 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:37] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:37] "GET /fotos/sin_nombre.jpg?t=1755188017064 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:39] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:39] "GET /fotos/sin_nombre.jpg?t=1755188019065 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:41] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:41] "GET /fotos/sin_nombre.jpg?t=1755188021066 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:43] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:43] "GET /fotos/sin_nombre.jpg?t=1755188023067 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:45] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:45] "GET /fotos/sin_nombre.jpg?t=1755188025068 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:47] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:47] "GET /fotos/sin_nombre.jpg?t=1755188027069 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:49] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:49] "GET /fotos/sin_nombre.jpg?t=1755188029072 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:51] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:51] "GET /fotos/sin_nombre.jpg?t=1755188031074 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:53] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:53] "GET /fotos/sin_nombre.jpg?t=1755188033075 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:55] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:55] "GET /fotos/sin_nombre.jpg?t=1755188035077 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:57] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:57] "GET /fotos/sin_nombre.jpg?t=1755188037078 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:59] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:13:59] "GET /fotos/sin_nombre.jpg?t=1755188039078 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:01] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:01] "GET /fotos/sin_nombre.jpg?t=1755188041080 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:03] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:03] "GET /fotos/sin_nombre.jpg?t=1755188043081 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:05] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:05] "GET /fotos/sin_nombre.jpg?t=1755188045082 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:07] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:07] "GET /fotos/sin_nombre.jpg?t=1755188047083 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:09] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:09] "GET /fotos/sin_nombre.jpg?t=1755188049083 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:11] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:11] "GET /fotos/sin_nombre.jpg?t=1755188051087 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:13] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:13] "GET /fotos/sin_nombre.jpg?t=1755188053082 HTTP/1.1" 200 -
+
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']172.40.210.24 - - [14/Aug/2025 13:14:15] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:15] "GET /fotos/sin_nombre.jpg?t=1755188055082 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:17] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:17] "GET /fotos/sin_nombre.jpg?t=1755188057084 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:19] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:19] "GET /fotos/sin_nombre.jpg?t=1755188059087 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:21] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:21] "GET /fotos/sin_nombre.jpg?t=1755188061086 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:23] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:23] "GET /fotos/sin_nombre.jpg?t=1755188063087 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:25] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:25] "GET /fotos/sin_nombre.jpg?t=1755188065089 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:27] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:27] "GET /fotos/sin_nombre.jpg?t=1755188067090 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:30] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:30] "GET /fotos/sin_nombre.jpg?t=1755188070019 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:33] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:33] "GET /fotos/sin_nombre.jpg?t=1755188073020 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:36] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:36] "GET /fotos/sin_nombre.jpg?t=1755188076020 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:39] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:39] "GET /fotos/sin_nombre.jpg?t=1755188079016 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:42] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:42] "GET /fotos/sin_nombre.jpg?t=1755188082019 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:45] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:45] "GET /fotos/sin_nombre.jpg?t=1755188085019 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:48] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:48] "GET /fotos/sin_nombre.jpg?t=1755188088021 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:51] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:51] "GET /fotos/sin_nombre.jpg?t=1755188091021 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:54] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:54] "GET /fotos/sin_nombre.jpg?t=1755188094019 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:57] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:14:57] "GET /fotos/sin_nombre.jpg?t=1755188097020 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:00] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:00] "GET /fotos/sin_nombre.jpg?t=1755188100030 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:03] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:03] "GET /fotos/sin_nombre.jpg?t=1755188103016 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:06] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:06] "GET /fotos/sin_nombre.jpg?t=1755188106022 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:09] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:09] "GET /fotos/sin_nombre.jpg?t=1755188109021 HTTP/1.1" 200 -
+
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']172.40.210.24 - - [14/Aug/2025 13:15:12] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:12] "GET /fotos/sin_nombre.jpg?t=1755188112017 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:15] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:15] "GET /fotos/sin_nombre.jpg?t=1755188115017 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:18] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:18] "GET /fotos/sin_nombre.jpg?t=1755188118020 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:21] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:21] "GET /fotos/sin_nombre.jpg?t=1755188121019 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:24] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:24] "GET /fotos/sin_nombre.jpg?t=1755188124017 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:26] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:26] "GET /fotos/sin_nombre.jpg?t=1755188126018 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:28] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:28] "GET /fotos/sin_nombre.jpg?t=1755188128021 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:30] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:30] "GET /fotos/sin_nombre.jpg?t=1755188130020 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:32] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:32] "GET /fotos/sin_nombre.jpg?t=1755188132025 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:34] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:34] "GET /fotos/sin_nombre.jpg?t=1755188134022 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:36] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:36] "GET /fotos/sin_nombre.jpg?t=1755188136030 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:38] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:38] "GET /fotos/sin_nombre.jpg?t=1755188138028 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:40] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:40] "GET /fotos/sin_nombre.jpg?t=1755188140029 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:42] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:42] "GET /fotos/sin_nombre.jpg?t=1755188142028 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:44] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:44] "GET /fotos/sin_nombre.jpg?t=1755188144030 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:46] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:46] "GET /fotos/sin_nombre.jpg?t=1755188146029 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:48] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:48] "GET /fotos/sin_nombre.jpg?t=1755188148033 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:50] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:50] "GET /fotos/sin_nombre.jpg?t=1755188150033 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:52] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:52] "GET /fotos/sin_nombre.jpg?t=1755188152031 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:54] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:54] "GET /fotos/sin_nombre.jpg?t=1755188154035 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:56] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:56] "GET /fotos/sin_nombre.jpg?t=1755188156032 HTTP/1.1" 200 -
+
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']
+[DEBUG] Archivo más reciente: sin_nombre.jpg
+Intentando servir: 'sin_nombre.jpg'
+[DEBUG] Listando archivos en /Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/cuaderno-feria-cueros/fotos
+[DEBUG] Archivos encontrados: ['sin_nombre.jpg', 'photo1_1755185759038.jpg', 'photo2_1755185789102.jpg', 'photo2_1755186557652.jpg', 'photo1_1755187363391.jpg', 'photo1_1755186526556.jpg']172.40.210.24 - - [14/Aug/2025 13:15:58] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:15:58] "GET /fotos/sin_nombre.jpg?t=1755188158037 HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:16:00] "GET /ultima_foto HTTP/1.1" 200 -
+172.40.210.24 - - [14/Aug/2025 13:16:00] "GET /fotos/sin_nombre.jpg?t=1755188160039 HTTP/1.1" 200 -
