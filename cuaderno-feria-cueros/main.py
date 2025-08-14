@@ -158,9 +158,9 @@ def generate_pdf():
                     # Comprimir imagen al 70% de calidad
                     compressed_photo1_path = compress_image(photo1_path, quality=70)
                     
-                    # Foto 1 en aspecto 16:9, doble de tamaño, alineada a la izquierda
-                    pdf.image(compressed_photo1_path, x=pdf.get_x(), y=pdf.get_y(), w=160, h=90)
-                    pdf.ln(95)
+                    # Foto 1 en aspecto 16:9, tamaño reducido a la mitad, alineada a la izquierda
+                    pdf.image(compressed_photo1_path, x=pdf.get_x(), y=pdf.get_y(), w=80, h=45)
+                    pdf.ln(50)
                     
                     # Limpiar archivo temporal si se creó uno
                     if compressed_photo1_path != photo1_path:
@@ -170,10 +170,10 @@ def generate_pdf():
                             pass
                 else:
                     print(f"[!] Foto 1 no encontrada: {photo1_path}")
-                    pdf.ln(100)
+                    pdf.ln(55)
             except Exception as e:
                 print(f"[!] Error insertando Foto 1: {e}")
-                pdf.ln(100)
+                pdf.ln(55)
         
         # Foto 2 adicional
         if hasPhoto2 and photo2_filename:
@@ -186,9 +186,9 @@ def generate_pdf():
                     # Comprimir imagen al 70% de calidad
                     compressed_photo2_path = compress_image(photo2_path, quality=70)
                     
-                    # Foto 2 en aspecto 16:9, doble de tamaño, alineada a la izquierda
-                    pdf.image(compressed_photo2_path, x=pdf.get_x(), y=pdf.get_y(), w=160, h=90)
-                    pdf.ln(95)
+                    # Foto 2 en aspecto 16:9, tamaño reducido a la mitad, alineada a la izquierda
+                    pdf.image(compressed_photo2_path, x=pdf.get_x(), y=pdf.get_y(), w=80, h=45)
+                    pdf.ln(50)
                     
                     # Limpiar archivo temporal si se creó uno
                     if compressed_photo2_path != photo2_path:
@@ -198,10 +198,10 @@ def generate_pdf():
                             pass
                 else:
                     print(f"[!] Foto 2 no encontrada: {photo2_path}")
-                    pdf.ln(100)
+                    pdf.ln(55)
             except Exception as e:
                 print(f"[!] Error insertando Foto 2: {e}")
-                pdf.ln(100)
+                pdf.ln(55)
         
         # COMENTADO: No incluir foto principal en el PDF
         # try:
