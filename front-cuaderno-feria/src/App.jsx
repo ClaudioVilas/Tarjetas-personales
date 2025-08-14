@@ -242,6 +242,13 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
   // Restaurar la descarga automática del PDF generado
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validación: empresa es obligatoria
+    if (!empresa || !empresa.trim()) {
+      setError('❌ El nombre de la empresa es obligatorio');
+      return;
+    }
+    
     setLoading(true);
     setError('');
     setEmailSuccess('');
@@ -351,8 +358,14 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
       <form onSubmit={handleSubmit} className="pdf-form">
         <div className="form-fields">
           <label>
-            <span>Nombre de la empresa:</span>
-            <input type="text" value={empresa} onChange={handleEmpresaChange} />
+            <span>Nombre de la empresa: *</span>
+            <input 
+              type="text" 
+              value={empresa} 
+              onChange={handleEmpresaChange} 
+              required
+              placeholder="Ingrese el nombre de la empresa"
+            />
           </label>
           <label>
             <span>Nombre de contacto:</span>

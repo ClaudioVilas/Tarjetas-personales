@@ -244,6 +244,11 @@ button:disabled {
   padding: 0;
 }
 
+/* Estilo para campos obligatorios */
+.form-fields label span:contains("*") {
+  color: #dc2626;
+}
+
 input, textarea {
   width: 100%;
   padding: 0.875rem 1rem;
@@ -255,6 +260,15 @@ input, textarea {
   background: #fafafa;
   font-family: inherit;
   box-sizing: border-box;
+}
+
+/* Estilo especial para campos requeridos */
+input:required:invalid {
+  border-color: #fca5a5;
+}
+
+input:required:valid {
+  border-color: #10b981;
 }
 
 input:focus, textarea:focus {
