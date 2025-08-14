@@ -27,9 +27,9 @@ function App() {
   
   // Estados para las nuevas fotos
   const [photo1, setPhoto1] = useState(null);
-  // const [photo2, setPhoto2] = useState(null);
+  const [photo2, setPhoto2] = useState(null);
   const [photo1Filename, setPhoto1Filename] = useState(null);
-  // const [photo2Filename, setPhoto2Filename] = useState(null);
+  const [photo2Filename, setPhoto2Filename] = useState(null);
 
   // Estado para la IP del servidor
   const [serverIP, setServerIP] = useState('');
@@ -117,21 +117,21 @@ function App() {
     }
   };
 
-  // const handleBoton2Click = async () => {
-  //   try {
-  //     if (!latestPhotoFilename) {
-  //       setError('No hay foto disponible para enviar');
-  //       return;
-  //     }
-  //     // Enviar la foto actual al segundo componente
-  //     const photoUrl = `${BACKEND_URL}/fotos/${latestPhotoFilename}?t=${Date.now()}`;
-  //     setPhoto2(photoUrl);
-  //     setPhoto2Filename(latestPhotoFilename);
-  //     setError('');
-  //   } catch (err) {
-  //     setError('Error al cargar foto 2');
-  //   }
-  // };
+  const handleBoton2Click = async () => {
+    try {
+      if (!latestPhotoFilename) {
+        setError('No hay foto disponible para enviar');
+        return;
+      }
+      // Enviar la foto actual al segundo componente
+      const photoUrl = `${BACKEND_URL}/fotos/${latestPhotoFilename}?t=${Date.now()}`;
+      setPhoto2(photoUrl);
+      setPhoto2Filename(latestPhotoFilename);
+      setError('');
+    } catch (err) {
+      setError('Error al cargar foto 2');
+    }
+  };
   
   // Funciones para borrar fotos
   const handleBorrarFoto1 = () => {
@@ -140,11 +140,11 @@ function App() {
     setError('');
   };
 
-  // const handleBorrarFoto2 = () => {
-  //   setPhoto2(null);
-  //   setPhoto2Filename(null);
-  //   setError('');
-  // };
+  const handleBorrarFoto2 = () => {
+    setPhoto2(null);
+    setPhoto2Filename(null);
+    setError('');
+  };
 
   // Función para enviar email con PDF
   const sendEmailWithPdf = async (pdfFilename) => {
@@ -223,6 +223,8 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
       console.log('- descripcion:', descripcion);
       console.log('- photo1:', photo1 ? 'Sí' : 'No');
       console.log('- photo1Filename:', photo1Filename);
+      console.log('- photo2:', photo2 ? 'Sí' : 'No');
+      console.log('- photo2Filename:', photo2Filename);
       
       // Generar el PDF usando los campos individuales
       const pdfForm = new FormData();
@@ -235,9 +237,9 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
       
       // Enviar información sobre las fotos adicionales
       pdfForm.append('hasPhoto1', photo1 ? 'true' : 'false');
-      pdfForm.append('hasPhoto2', 'false');
+      pdfForm.append('hasPhoto2', photo2 ? 'true' : 'false');
       pdfForm.append('photo1_filename', photo1Filename || '');
-      pdfForm.append('photo2_filename', '');
+      pdfForm.append('photo2_filename', photo2Filename || '');
       
       console.log('[DEBUG] Generando PDF...');
       const pdfRes = await fetch(`${BACKEND_URL}/generate_pdf`, {
@@ -369,7 +371,7 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
           </div>
           
           {/* Foto 2 */}
-          {/* <div className="photo-container">
+          <div className="photo-container">
             <h3>Foto 2</h3>
             <div className="photo-display">
               {photo2 ? (
@@ -397,7 +399,7 @@ console.log('[DEBUG EMAIL] Respuesta del servidor:', response);
                 </button>
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         {latestPhoto && (

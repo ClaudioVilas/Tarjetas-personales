@@ -175,23 +175,33 @@ def generate_pdf():
                 print(f"[!] Error insertando Foto 1: {e}")
                 pdf.ln(100)
         
-        # COMENTADO: No incluir Foto 2 ni foto principal en el PDF
-        # if hasPhoto2 and photo2_filename:
-        #     pdf.set_font('Arial', 'B', 12)
-        #     pdf.cell(0, 8, 'Foto 2', ln=1, align='L')
-        #     try:
-        #         pdf.ln(5)
-        #         photo2_path = os.path.join(FOTOS_FOLDER, photo2_filename)
-        #         if os.path.exists(photo2_path):
-        #             # Foto 2 en aspecto 16:9, doble de tamaño, alineada a la izquierda
-        #             pdf.image(photo2_path, x=pdf.get_x(), y=pdf.get_y(), w=160, h=90)
-        #             pdf.ln(95)
-        #         else:
-        #             print(f"[!] Foto 2 no encontrada: {photo2_path}")
-        #             pdf.ln(100)
-        #     except Exception as e:
-        #         print(f"[!] Error insertando Foto 2: {e}")
-        #         pdf.ln(100)
+        # Foto 2 adicional
+        if hasPhoto2 and photo2_filename:
+            pdf.set_font('Arial', 'B', 12)
+            pdf.cell(0, 8, 'Foto 2', ln=1, align='L')
+            try:
+                pdf.ln(5)
+                photo2_path = os.path.join(FOTOS_FOLDER, photo2_filename)
+                if os.path.exists(photo2_path):
+                    # Comprimir imagen al 70% de calidad
+                    compressed_photo2_path = compress_image(photo2_path, quality=70)
+                    
+                    # Foto 2 en aspecto 16:9, doble de tamaño, alineada a la izquierda
+                    pdf.image(compressed_photo2_path, x=pdf.get_x(), y=pdf.get_y(), w=160, h=90)
+                    pdf.ln(95)
+                    
+                    # Limpiar archivo temporal si se creó uno
+                    if compressed_photo2_path != photo2_path:
+                        try:
+                            os.unlink(compressed_photo2_path)
+                        except:
+                            pass
+                else:
+                    print(f"[!] Foto 2 no encontrada: {photo2_path}")
+                    pdf.ln(100)
+            except Exception as e:
+                print(f"[!] Error insertando Foto 2: {e}")
+                pdf.ln(100)
         
         # COMENTADO: No incluir foto principal en el PDF
         # try:
