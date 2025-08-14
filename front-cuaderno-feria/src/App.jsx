@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-// Estilo global para centrar el div principal
-const style = document.createElement('style');
-style.innerHTML = `#root > div { min-height: 100vh; display: flex; align-items: center; justify-content: center; }`;
-document.head.appendChild(style);
-
 
 function App() {
   const [empresa, setEmpresa] = useState('');
