@@ -9,14 +9,15 @@
 #root {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 1rem;
+  padding-top: 0;
 }
 
 /* Estilos del cuerpo para mejor centrado */
 body {
-  margin: 0;
+  margin: 5px;
   padding: 0;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
@@ -43,7 +44,7 @@ h1 {
 .server-info {
   position: absolute;
   top: 4.5rem;
-  left: 0.5rem;
+  left: -15rem;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   padding: 0.5rem 1rem;
@@ -66,6 +67,7 @@ h1 {
   padding: 2.5rem;
   max-width: 900px;
   width: 100%;
+  margin-top: 8rem;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(200,200,255,0.18);
   transition: box-shadow 0.3s, transform 0.3s;
