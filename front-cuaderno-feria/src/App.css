@@ -341,14 +341,6 @@ textarea {
   transform: scale(1.03);
 }
 
-.additional-photos {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  width: 100%;
-}
-
 .additional-photos h3 {
   color: #374151;
   font-size: 1.2rem;
