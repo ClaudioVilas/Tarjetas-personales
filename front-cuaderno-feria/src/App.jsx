@@ -107,13 +107,33 @@ function App() {
         setError('No hay foto disponible para enviar');
         return;
       }
-      // Enviar la foto actual al primer componente
-      const photoUrl = `${BACKEND_URL}/fotos/${latestPhotoFilename}?t=${Date.now()}`;
+      
+      // Crear copia única para foto 1
+      const response = await fetch(`${BACKEND_URL}/create_unique_photo`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          source_filename: latestPhotoFilename,
+          position: 'photo1'
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Error creando copia única para foto 1');
+      }
+      
+      const data = await response.json();
+      const uniqueFilename = data.unique_filename;
+      
+      // Mostrar la foto con el nombre único
+      const photoUrl = `${BACKEND_URL}/fotos/${uniqueFilename}?t=${Date.now()}`;
       setPhoto1(photoUrl);
-      setPhoto1Filename(latestPhotoFilename);
+      setPhoto1Filename(uniqueFilename);
       setError('');
     } catch (err) {
-      setError('Error al cargar foto 1');
+      setError('Error al cargar foto 1: ' + err.message);
     }
   };
 
@@ -123,13 +143,33 @@ function App() {
         setError('No hay foto disponible para enviar');
         return;
       }
-      // Enviar la foto actual al segundo componente
-      const photoUrl = `${BACKEND_URL}/fotos/${latestPhotoFilename}?t=${Date.now()}`;
+      
+      // Crear copia única para foto 2
+      const response = await fetch(`${BACKEND_URL}/create_unique_photo`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          source_filename: latestPhotoFilename,
+          position: 'photo2'
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Error creando copia única para foto 2');
+      }
+      
+      const data = await response.json();
+      const uniqueFilename = data.unique_filename;
+      
+      // Mostrar la foto con el nombre único
+      const photoUrl = `${BACKEND_URL}/fotos/${uniqueFilename}?t=${Date.now()}`;
       setPhoto2(photoUrl);
-      setPhoto2Filename(latestPhotoFilename);
+      setPhoto2Filename(uniqueFilename);
       setError('');
     } catch (err) {
-      setError('Error al cargar foto 2');
+      setError('Error al cargar foto 2: ' + err.message);
     }
   };
   

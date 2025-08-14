@@ -293,6 +293,38 @@ def ultima_foto():
         print(f"[ERROR] en /ultima_foto: {e}")
         return jsonify({'error': str(e)}), 500
 
+# Endpoint para crear copia única de una foto para posición específica
+@app.route('/create_unique_photo', methods=['POST'])
+def create_unique_photo():
+    try:
+        data = request.get_json()
+        source_filename = data.get('source_filename')
+        position = data.get('position')  # 'photo1' o 'photo2'
+        
+        if not source_filename or not position:
+            return jsonify({'error': 'Faltan parámetros'}), 400
+            
+        source_path = os.path.join(FOTOS_FOLDER, source_filename)
+        if not os.path.exists(source_path):
+            return jsonify({'error': 'Archivo fuente no encontrado'}), 404
+            
+        # Generar nombre único basado en timestamp y posición
+        import time
+        timestamp = int(time.time() * 1000)  # milisegundos
+        unique_filename = f"{position}_{timestamp}.jpg"
+        unique_path = os.path.join(FOTOS_FOLDER, unique_filename)
+        
+        # Copiar archivo
+        import shutil
+        shutil.copy2(source_path, unique_path)
+        
+        print(f"[DEBUG] Copia única creada: {source_filename} -> {unique_filename}")
+        return jsonify({'unique_filename': unique_filename}), 200
+        
+    except Exception as e:
+        print(f"[ERROR] en /create_unique_photo: {e}")
+        return jsonify({'error': str(e)}), 500
+
 # Endpoint para servir fotos individuales
 @app.route('/fotos/<filename>')
 def serve_foto(filename):
