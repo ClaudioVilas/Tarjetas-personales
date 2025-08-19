@@ -246,17 +246,20 @@ class EmailService:
     
     def _attach_additional_files(self, msg):
         """Adjunta archivos adicionales de La Pampa Cueros al mensaje"""
+        # Ruta base a los archivos de La Pampa Cueros
+        la_pampa_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'La Pampa Cueros'))
+        
         additional_files = [
             {
-                'path': '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/La Pampa Cueros/1.1.pdf',
-                'filename': 'La_Pampa_Cueros_1.1.pdf'
+                'path': os.path.join(la_pampa_folder, 'Claudio Vilas.pdf'),
+                'filename': 'Claudio_Vilas.pdf'
             },
             {
-                'path': '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/La Pampa Cueros/1.pdf',
-                'filename': 'La_Pampa_Cueros_1.pdf'
+                'path': os.path.join(la_pampa_folder, 'Daniel Andrada.pdf'),
+                'filename': 'Daniel_Andrada.pdf'
             },
             {
-                'path': '/Users/claudiovilas/Downloads/Copia de Proyecto Tarjetas Feria 2/La Pampa Cueros/Brochure_La_Pampa_page-op.pdf',
+                'path': os.path.join(la_pampa_folder, 'Brochure_La_Pampa_page-op.pdf'),
                 'filename': 'Brochure_La_Pampa_Cueros.pdf'
             }
         ]
