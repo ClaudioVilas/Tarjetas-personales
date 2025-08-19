@@ -41,26 +41,14 @@ class EmailService:
         self.sender_email = "info@lapampacueros.com"
         self.sender_name = "La Pampa Cueros - Feria Shanghai 2025"
         
-        # Configuración de archivos - Usar volumen compartido Docker
-        # En Docker, el volumen se monta en /shared/pdf-output
-        self.pdf_folder = os.environ.get('PDF_FOLDER', '/shared/pdf-output')
-        
-        # Carpeta de archivos adicionales (La Pampa Cueros)
-        self.attachments_folder = os.environ.get('ATTACHMENTS_FOLDER', '/app/la-pampa-files')
-        
-        # Fallback para desarrollo local
-        if not os.path.exists(self.pdf_folder):
-            self.pdf_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'Pdf Feria'))
-        
-        if not os.path.exists(self.attachments_folder):
-            self.attachments_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'La Pampa Cueros'))
+        # Configuración de archivos - Usar variable de entorno para Docker
+        self.pdf_folder = os.environ.get('PDF_FOLDER', os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Pdf Feria')))
         
         logging.info(f"📧 EmailService inicializado:")
         logging.info(f"   📡 Servidor SMTP: {self.smtp_server}:{self.smtp_port}")
         logging.info(f"   👤 Usuario: {self.smtp_user}")
         logging.info(f"   🔒 SSL/TLS: {self.use_tls}")
         logging.info(f"   📁 Carpeta PDF: {self.pdf_folder}")
-        logging.info(f"   📎 Carpeta Adjuntos: {self.attachments_folder}")
         
     def send_pdf_email(self, recipient_email, recipient_name="", pdf_path="", empresa="", nombreContacto="", posicion="", mail="", descripcion=""):
         """
@@ -203,7 +191,7 @@ class EmailService:
                     <ul>
                         <li><strong>Sales:</strong> Andrada Daniel</li>
                         <li><strong>Mail:</strong> info@lapampacueros.com</li>
-                        <li><strong>Mobile:</strong> +54 9 11 5415</li>
+                        <li><strong>Mobile:</strong>+54 9 11 7143-1973</li>
                     </ul>
                     
                     <h5><strong>Manager:</strong></h5>
@@ -258,25 +246,28 @@ class EmailService:
     
     def _attach_additional_files(self, msg):
         """Adjunta archivos adicionales de La Pampa Cueros al mensaje"""
+        # Get La Pampa Cueros directory path from environment or use default
+        la_pampa_folder = os.environ.get('ATTACHMENTS_FOLDER', '/app/la-pampa-files')
+        logging.info(f"🔗 Adjuntando archivos adicionales de La Pampa Cueros desde: {la_pampa_folder}")
+        
         additional_files = [
             {
-                'filename': '1.1.pdf',
-                'display_name': 'La_Pampa_Cueros_1.1.pdf'
+                'path': os.path.join(la_pampa_folder, 'Claudio Vilas.pdf'),
+                'filename': 'Claudio_Vilas.pdf'
             },
             {
-                'filename': '1.pdf',
-                'display_name': 'La_Pampa_Cueros_1.pdf'
+                'path': os.path.join(la_pampa_folder, 'Daniel Andrada.pdf'),
+                'filename': 'Daniel_Andrada.pdf'
             },
             {
-                'filename': 'Brochure_La_Pampa_page-op.pdf',
-                'display_name': 'Brochure_La_Pampa_Cueros.pdf'
+                'path': os.path.join(la_pampa_folder, 'Brochure_La_Pampa_page-op.pdf'),
+                'filename': 'Brochure_La_Pampa_Cueros.pdf'
             }
         ]
         
         for file_info in additional_files:
+            file_path = file_info['path']
             filename = file_info['filename']
-            display_name = file_info['display_name']
-            file_path = os.path.join(self.attachments_folder, filename)
             
             if os.path.exists(file_path):
                 try:
@@ -286,12 +277,12 @@ class EmailService:
                         encoders.encode_base64(part)
                         part.add_header(
                             'Content-Disposition',
-                            f'attachment; filename="{display_name}"'
+                            f'attachment; filename="{filename}"'
                         )
                         msg.attach(part)
-                        logging.info(f"Archivo adjunto agregado: {display_name} desde {file_path}")
+                        logging.info(f"Archivo adjunto agregado: {filename}")
                 except Exception as e:
-                    logging.error(f"Error adjuntando archivo {display_name}: {str(e)}")
+                    logging.error(f"Error adjuntando archivo {filename}: {str(e)}")
             else:
                 logging.warning(f"Archivo no encontrado: {file_path}")
     

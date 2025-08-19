@@ -53,9 +53,9 @@ services:
       - "5001:5001"
     volumes:
       - shared-config:/shared/config:ro
-      - shared-pdf:/shared/pdf-output:ro
       - ./data/email/attachments:/app/attachments:ro
       - ../La Pampa Cueros:/app/la-pampa-files:ro
+      - '../Pdf Feria:/shared/pdf-output:rw'
     networks:
       - tarjetas-network
     depends_on:
