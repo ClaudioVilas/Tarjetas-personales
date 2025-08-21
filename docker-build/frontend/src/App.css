@@ -1,5 +1,28 @@
 /* CSS básico para la aplicación PDF */
 
+/* Reset básico y centrado global */
+* {
+  box-sizing: border-box;
+}
+
+/* Centrado global de la aplicación */
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+/* Estilos del cuerpo para mejor centrado */
+body {
+  margin: 5px;
+  padding: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
 h1 {
   position: absolute;
   top: 0;
@@ -21,7 +44,7 @@ h1 {
 .server-info {
   position: absolute;
   top: 4.5rem;
-  left: 1rem;
+  left: -15rem;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   padding: 0.5rem 1rem;
@@ -42,9 +65,9 @@ h1 {
   box-shadow: 0 8px 32px rgba(60,60,120,0.18);
   border-radius: 24px;
   padding: 2.5rem;
-  max-width: 900px;
+  max-width: 1170px;
   width: 100%;
-  margin: 2rem auto;
+  margin-top: 2rem;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(200,200,255,0.18);
   transition: box-shadow 0.3s, transform 0.3s;
@@ -60,16 +83,19 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  background: rgba(255,255,255,0.7);
   border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(60,60,120,0.08);
-  padding: 2rem;
+  padding: 3rem;
+  padding-top: 5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-fields {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
 .image-section {
@@ -89,15 +115,20 @@ h1 {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  width: 491px;
+  height: 302px;
+  margin: 0 auto;
 }
 
 .latest-photo img {
-  width: 15cm;
-  height: 7cm;
+  width: 302px;
+  height: 491px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(60,60,120,0.12);
   transition: transform 0.3s;
+  rotate: -90deg;
+  transform-origin: center;
 }
 
 .latest-photo img:hover {
@@ -196,15 +227,48 @@ button:disabled {
   background: linear-gradient(135deg, #c82333, #bd2130);
 }
 
+/* Estilos para labels de formulario */
+.form-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.form-fields label span {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo para campos obligatorios */
+.form-fields label span:contains("*") {
+  color: #dc2626;
+}
+
 input, textarea {
   width: 100%;
   padding: 0.875rem 1rem;
+  margin: 0;
   border: 2px solid #e5e7eb;
   border-radius: 12px;
   font-size: 1rem;
   transition: all 0.3s;
   background: #fafafa;
   font-family: inherit;
+  box-sizing: border-box;
+}
+
+/* Estilo especial para campos requeridos */
+input:required:invalid {
+  border-color: #fca5a5;
+}
+
+input:required:valid {
+  border-color: #10b981;
 }
 
 input:focus, textarea:focus {
@@ -222,19 +286,23 @@ textarea {
 
 .additional-photos {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  flex-direction: row;
+  gap: 2rem;
   margin-bottom: 2rem;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .photo-container {
   text-align: center;
+  flex: 1;
+  max-width: 550px;
 }
 
 .photo-display {
   width: 100%;
-  max-width: 600px;
-  height: 337px;
+  max-width: 491px;
+  height: 302px;
   border: 2px dashed #ccc;
   display: flex;
   align-items: center;
@@ -253,12 +321,13 @@ textarea {
 }
 
 .photo-img {
-  width: 100%;
-  height: 100%;
+  width: 302px;
+  height: 491px;
   object-fit: cover;
   border-radius: 10px;
   background-color: #ffffff;
   rotate: -90deg;
+  transform-origin: center;
 }
 
 .photo-placeholder {
@@ -287,14 +356,6 @@ textarea {
 
 .latest-photo-img:hover {
   transform: scale(1.03);
-}
-
-.additional-photos {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  width: 100%;
 }
 
 .additional-photos h3 {
@@ -407,20 +468,27 @@ textarea {
     padding: 0.6rem 1rem;
   }
   .additional-photos .photo-display {
-    max-width: 480px;
-    height: 270px;
+    width: 100%;
+    max-width: 350px;
+    height: 215px;
   }
-  .photo-container > div:last-child {
+  .additional-photos {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
   }
-  
-  .email-info {
-    padding: 0.6rem;
-    margin-top: 0.8rem;
+  .photo-container {
+    max-width: none;
   }
-  
-  .email-info small {
-    font-size: 0.8rem;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
