@@ -27,7 +27,7 @@ services:
       - "5000:5000"
     volumes:
       - ./shared/pdf-output:/shared/pdf-output
-      - ../cuaderno-feria-cueros/fotos:/app/fotos
+      - ./data/backend/uploads:/app/fotos
     networks:
       - tarjetas-network
     depends_on:
@@ -55,7 +55,7 @@ services:
       - shared-config:/shared/config:ro
       - ./data/email/attachments:/app/attachments:ro
       - ../La Pampa Cueros:/app/la-pampa-files:ro
-      - '../Pdf Feria:/shared/pdf-output:rw'
+      - './shared/pdf-output:/shared/pdf-output:rw'
     networks:
       - tarjetas-network
     depends_on:
